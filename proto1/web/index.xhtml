@@ -2,7 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <body>
 
@@ -10,22 +12,58 @@
 
             <ui:define name="top">
                 <div align="center">
-                    <h:form>
-                        <h2>Witaj !!!</h2>
-                    </h:form>
+                    <p:panel>
+                        <h2>Witaj!!!</h2>
+                    </p:panel>
                 </div>
             </ui:define>
 
             <ui:define name="content">
                 <div align="center">
-                    <h:form>
-                        <h:commandLink action="StartKsiegowa" value="Ksiegowa"/><br/>
-                        <h:commandLink action="StartKierownik" value="Kierownik"/><br/>
-                        <h:commandLink action="StartPracownikZatrudniony" value="Pracownik"/><br/>
-                        <h:commandLink action="StartPracownikNaUmowie" value="Cieć :D"/><br/>
-                        <h:commandLink action="StartMieszkaniec" value="Mieszkaniec"/><br/>
-                        <h:commandLink action="StartCzlonek" value="Członek rady"/>
-                    </h:form>
+                    <p:panel>
+                        <h:form>
+                            <h:commandLink action="StartKsiegowa" value="Ksiegowa"/><br/>
+                            <h:commandLink action="StartKierownik" value="Kierownik"/><br/>
+                            <h:commandLink action="StartPracownikZatrudniony" value="Pracownik"/><br/>
+                            <h:commandLink action="StartPracownikNaUmowie" value="Cieć"/><br/>
+                            <h:commandLink action="StartMieszkaniec" value="Mieszkaniec"/><br/>
+                            <h:commandLink action="StartCzlonek" value="Członek rady"/>
+                            <h:panelGrid columns="2">
+                                <f:facet name="header">
+                                    <h2>Logowanie:</h2>
+                                </f:facet>  
+                                <h:outputText value="Login:" style="margin-right: 10px; font-weight: bolder"/>
+                                <p:inputText value="123"/>
+                                <h:outputText value="Hasło:" style="margin-right: 10px; font-weight: bolder"/>
+                                <p:password value="123"/>
+                                <f:facet name="footer">
+                                    <p:commandButton icon="ui-icon-home" value="Zaloguj się" style="width: 100%"/>
+                                </f:facet>
+                            </h:panelGrid>
+                            <p:separator/>
+                            <h:panelGrid columns="2">
+                                <f:facet name="header">
+                                    <h2>Rejestracja:</h2>
+                                </f:facet>  
+                                <h:outputText value="Login:" style="margin-right: 10px; font-weight: bolder"/>
+                                <p:inputText value="login"/>
+                                <h:outputText value="Hasło:" style="margin-right: 10px; font-weight: bolder"/>
+                                <p:password value="123" feedback="true"/>
+                                <h:outputText value="Status:" style="margin-right: 10px; font-weight: bolder"/>
+                                <p:selectOneMenu value="Kierownik">
+                                    <f:selectItem itemValue="Kierownik" itemLabel="Kierownik" />
+                                    <f:selectItem itemValue="Ksiegowa" itemLabel="Ksiegowa" />
+                                    <f:selectItem itemValue="Pracownik" itemLabel="Pracownik Stały" />
+                                    <f:selectItem itemValue="Cieć" itemLabel="Cieć" />
+                                    <f:selectItem itemValue="Mieszkaniec" itemLabel="Mieszkaniec" />
+                                    <f:selectItem itemValue="CzłonekRady" itemLabel="Członek rady" />
+                                </p:selectOneMenu>
+                                <f:facet name="footer">
+                                    <p:commandButton icon="ui-icon-note" value="Zarejestruj się" style="width: 100%"/>
+                                </f:facet>
+                            </h:panelGrid>
+                        </h:form>
+                    </p:panel>
                 </div>
             </ui:define>
 

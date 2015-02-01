@@ -8,6 +8,7 @@ SZCZEGÓŁOWY PLAN NA GRUDZIEŃ:
 PLAN DO KOŃCA SEMESTRU:
 * Napisanie części kontrolerów do bazy danych
 * Dokończenie bazy danych
+* Wypełnienie bazy danych przykładowymi danymi
 * Stworzenie zarysu klas i funkcji dla poszczególnych osób
 
 PLAN DO KOŃCA ROKU AKADEMICKIEGO:

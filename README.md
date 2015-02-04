@@ -5,13 +5,13 @@ SZCZEGÓŁOWY PLAN NA GRUDZIEŃ:
 * Część bazy danych
 * Rozwinięcie prototypu o główne funkcjonalności
 
-PLAN DO KOŃCA SEMESTRU:
+PLAN Styczeń:
 * Napisanie części kontrolerów do bazy danych
 * Dokończenie bazy danych
-* Wypełnienie bazy danych przykładowymi danymi
-* Stworzenie zarysu klas i funkcji dla poszczególnych osób
+* Stworzenie i opracowanie mockupów
 
 PLAN DO KOŃCA ROKU AKADEMICKIEGO:
 * Dodanie logowania
+* Stworzenie zarysu klas i funkcji dla poszczególnych osób
 * Aspekty wizualne związane z funkcjonalnością
 * Testy cząstkowe i wdrożeniowe

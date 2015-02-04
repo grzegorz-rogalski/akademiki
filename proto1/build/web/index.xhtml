@@ -22,7 +22,7 @@
                 <div align="center">
                     <p:panel>
                         <h:form>
-                            <h:commandLink action="StartKsiegowa" value="Ksiegowa"/><br/>
+                            <!--<h:commandLink action="StartKsiegowa" value="Ksiegowa"/><br/>
                             <h:commandLink action="StartKierownik" value="Kierownik"/><br/>
                             <h:commandLink action="StartPracownikZatrudniony" value="Pracownik"/><br/>
                             <h:commandLink action="StartPracownikNaUmowie" value="Cieć"/><br/>
@@ -40,17 +40,23 @@
                                     <p:commandButton icon="ui-icon-home" value="Zaloguj się" style="width: 100%"/>
                                 </f:facet>
                             </h:panelGrid>
-                            <p:separator/>
+                            <p:separator/>-->
                             <h:panelGrid columns="2">
                                 <f:facet name="header">
                                     <h2>Rejestracja:</h2>
-                                </f:facet>  
+                                </f:facet>
+                                <h:outputText value="Imie:" style="margin-right: 10px; font-weight: bolder"/>
+                                <p:inputText value="#{kontroler.osoba.imie}"/>
+                                <h:outputText value="Nazwisko:" style="margin-right: 10px; font-weight: bolder"/>
+                                <p:inputText value="#{kontroler.osoba.nazwisko}"/>
                                 <h:outputText value="Login:" style="margin-right: 10px; font-weight: bolder"/>
-                                <p:inputText value="login"/>
+                                <p:inputText value="#{kontroler.osoba.login}"/>
                                 <h:outputText value="Hasło:" style="margin-right: 10px; font-weight: bolder"/>
-                                <p:password value="123" feedback="true"/>
+                                <p:password value="#{kontroler.osoba.haslo}" feedback="true"/>
+                                <h:outputText value="Mail:" style="margin-right: 10px; font-weight: bolder"/>
+                                <p:inputText value="#{kontroler.osoba.mail}"/>
                                 <h:outputText value="Status:" style="margin-right: 10px; font-weight: bolder"/>
-                                <p:selectOneMenu value="Kierownik">
+                                <p:selectOneMenu value="#{kontroler.osoba.status}">
                                     <f:selectItem itemValue="Kierownik" itemLabel="Kierownik" />
                                     <f:selectItem itemValue="Ksiegowa" itemLabel="Ksiegowa" />
                                     <f:selectItem itemValue="Pracownik" itemLabel="Pracownik Stały" />
@@ -59,7 +65,7 @@
                                     <f:selectItem itemValue="CzłonekRady" itemLabel="Członek rady" />
                                 </p:selectOneMenu>
                                 <f:facet name="footer">
-                                    <p:commandButton icon="ui-icon-note" value="Zarejestruj się" style="width: 100%"/>
+                                    <p:commandButton action="#{kontroler.test()}" value="Zarejestruj się" style="width: 100%"/>
                                 </f:facet>
                             </h:panelGrid>
                         </h:form>

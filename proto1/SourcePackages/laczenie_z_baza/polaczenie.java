@@ -17,7 +17,7 @@ import osoba.Pearson;
 public class polaczenie {
     
     public static DBCollection getConnection(String dbName, String collectionName) throws UnknownHostException{
-        MongoClient mongoClient = new MongoClient("ds041180.mongolab.com", 41180);
+        MongoClient mongoClient = new MongoClient("localhost", 27017);
         DB db = mongoClient.getDB(dbName);
         DBCollection collection = db.getCollection(collectionName);
         return collection;

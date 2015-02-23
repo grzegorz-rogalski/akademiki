@@ -6,36 +6,34 @@
     <navigation-rule>
         <from-view-id>/index.xhtml</from-view-id>
         <navigation-case>
-            <from-action>StartKsiegowa</from-action>
             <from-outcome>StartKsiegowa</from-outcome>
             <to-view-id>/ksiegowa/KsiegowaStart.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-action>StartMieszkaniec</from-action>
             <from-outcome>StartMieszkaniec</from-outcome>
             <to-view-id>/mieszkaniec/mieszkaniecStart.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-action>StartKierownik</from-action>
+            <from-outcome>StartKierownik</from-outcome>
             <to-view-id>/Kierownik/KierownikStart.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-action>StartCzlonek</from-action>
+            <from-outcome>StartCzlonek</from-outcome>
             <to-view-id>/czlonekRady/CzlonekStart.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-action>StartPracownikNaUmowie</from-action>
+            <from-outcome>StartPracownikNaUmowie</from-outcome>
             <to-view-id>/pracownikNaUmowe/pracownikNaUmowieStart.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-action>StartPracownikZatrudniony</from-action>
+            <from-outcome>StartPracownikZatrudniony</from-outcome>
             <to-view-id>/pracownikZatrudniony/PracZatrudniunyStart.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>*</from-view-id>
         <navigation-case>
-            <from-action>home</from-action>
+            <from-outcome>home</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>

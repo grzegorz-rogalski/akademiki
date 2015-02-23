@@ -6,50 +6,98 @@
 
 package kontroler;
 
+import java.io.Serializable;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import laczenie_z_baza.polaczenie;
+import laczenie_z_baza.DBkontroler;
+import laczenie_z_baza.Messenger;
 import osoba.Pearson;
 
 
 @ManagedBean
 @SessionScoped
-public class kontroler {
+public class kontroler implements Serializable{
 
+    //KONSTRUKTORY ###################################################
     public kontroler() {
     }
-    
+    private DBkontroler service = new DBkontroler();
+    private List<Pearson>listG = new ArrayList<>();
     private Pearson osoba=new Pearson();
-    private String zapytanie;
-
-    public String getZapytanie() {
-        return zapytanie;
-    }
-
-    public void setZapytanie(String zapytanie) {
-        this.zapytanie = zapytanie;
+    
+    //BAZA ###################################################
+    
+    @PostConstruct
+    public void create()
+    {
+       service.insterCreate("create table OSOBA (id int, imie varchar(32), nazwisko varchar(32), login varchar(32), haslo varchar(32),"
+               + " mail varchar(32), status varchar(32), numerPokoju int)");
+       
+       Messenger.addSuccessMessage("Tabela została utworzona");
     }
     
+    public String add()
+    {
+        String IdString=checkId();
+        service.insterCreate("insert into OSOBA values(1, '"+osoba.getImie()+"', '"+osoba.getNazwisko()+"', '"+osoba.getLogin()+"', '"+osoba.getHaslo()+"', '"+osoba.getMail()+"', '"+osoba.getStatus()+"', 1)");
+        Messenger.addSuccessMessage("Wstawiono dane testowe :D");
+        return przenies(osoba.getStatus());
+    }
+    
+    private String checkId()
+    {
+        listG=service.printTable("select * from OSOBA");
+        int temp = listG.size();
+        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  "+temp+"    @@@@@@@@@@@@@@@@@@@@@@@@@@@");
+        return "1";
+    }
+    
+    
+    //GETERY && SETERY ####################################
 
     public Pearson getOsoba() {
         return osoba;
     }
 
-    public void setOsoba(Pearson osoba) {
+    public void setOsoba(Pearson osoba){
         this.osoba = osoba;
     }
     
-    public String rejestracja() throws UnknownHostException
-    {
-        //zapytanie = new polaczenie().isertData("akademik", "Osoba", osoba);
-        return "StartKierownik";
+
+    public List<Pearson> getListG() {
+        return listG;
     }
-    public String test() throws UnknownHostException
+
+    public void setListG(List<Pearson> listG) {
+        this.listG = listG;
+    }
+    
+    //ZALOGUJ && WYLOGUJ ###################################################
+    
+    //BRAK
+    
+    //FUNKCJE POMOCNICZE @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    
+    //gdzie przeniesc po logowaniu/rejestracji
+    private String przenies(String status)
     {
-        zapytanie = new polaczenie().isertData("akademik", "Osoba", osoba);
-        return "/ksiegowa/KsiegowaStart.xhtml";
+        if(status.equals("Kierownik"))
+            return "StartKierownik";
+        if(status.equals("Ksiegowa"))
+            return "StartKsiegowa";
+        if(status.equals("Pracownik"))
+            return "StartPracownikZatrudniony";
+        if(status.equals("Ciec"))
+            return "StartPracownikNaUmowie";
+        if(status.equals("Mieszkaniec"))
+            return "StartMieszkaniec";
+        if(status.equals("CzlonekRady"))
+            return "StartCzlonek";
+        
+        return "home";
     }
 }

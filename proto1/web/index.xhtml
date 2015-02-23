@@ -41,6 +41,7 @@
                                 </f:facet>
                             </h:panelGrid>
                             <p:separator/>-->
+                            <h:outputText value="#{kontroler.create()}"/>
                             <h:panelGrid columns="2">
                                 <f:facet name="header">
                                     <h2>Rejestracja:</h2>
@@ -60,12 +61,12 @@
                                     <f:selectItem itemValue="Kierownik" itemLabel="Kierownik" />
                                     <f:selectItem itemValue="Ksiegowa" itemLabel="Ksiegowa" />
                                     <f:selectItem itemValue="Pracownik" itemLabel="Pracownik Stały" />
-                                    <f:selectItem itemValue="Cieć" itemLabel="Cieć" />
+                                    <f:selectItem itemValue="Ciec" itemLabel="Cieć" />
                                     <f:selectItem itemValue="Mieszkaniec" itemLabel="Mieszkaniec" />
-                                    <f:selectItem itemValue="CzłonekRady" itemLabel="Członek rady" />
+                                    <f:selectItem itemValue="CzlonekRady" itemLabel="Członek rady" />
                                 </p:selectOneMenu>
                                 <f:facet name="footer">
-                                    <p:commandButton action="#{kontroler.test()}" value="Zarejestruj się" style="width: 100%"/>
+                                    <p:commandButton action="#{kontroler.add()}" value="Zarejestruj się" style="width: 100%"/>
                                 </f:facet>
                             </h:panelGrid>
                         </h:form>

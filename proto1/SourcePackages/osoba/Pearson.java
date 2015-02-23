@@ -21,6 +21,16 @@ public class Pearson {
         numerPokoju=1;
     }
 
+    public Pearson(String imie, String nazwisko, String login, String haslo, String mail, String status, int numerPokoju) {
+        this.imie = imie;
+        this.nazwisko = nazwisko;
+        this.login = login;
+        this.haslo = haslo;
+        this.mail = mail;
+        this.status = status;
+        this.numerPokoju = numerPokoju;
+    }
+
     public String getImie() {
         return imie;
     }

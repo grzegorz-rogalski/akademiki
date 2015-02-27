@@ -19,38 +19,51 @@
             </ui:define>
 
             <ui:define name="content">
+                <p:panel>
+                    <h:form>
+                        <div align="center">
+                            <h2>Dokonaj logowania lub rejestracji</h2>
+                        </div>
+                    </h:form>
+                </p:panel>
                 <p:accordionPanel>
         <p:tab title="Logowanie">
-            <h:panelGrid columns="2">
-                <h:outputLabel value="Login:" for="login" />
-                <h:inputText id="login" value="#{kontroler.osoba.login}" title="Login" />
-                <h:outputLabel value="Haslo:" for="haslo" />
-                <h:inputText id="haslo" value="#{kontroler.osoba.haslo}" title="Haslo" />
-                <f:facet name="footer">
-                    <h:commandButton value="Logowanie"/>
-                </f:facet>
-            </h:panelGrid>
-        </p:tab>
-        <p:tab title="Rejestracja">
-            <f:view>
+            <div align="center">
                 <h:form>
-                    <h1><h:outputText value="Podaj swoje dane:"/></h1>
                     <h:panelGrid columns="2">
-                        <h:outputLabel value="Imie:" for="imie" />
-                        <h:inputText id="imie" value="#{kontroler.osoba.imie}" title="Imie" />
-                        <h:outputLabel value="Nazwisko:" for="nazwisko" />
-                        <h:inputText id="nazwisko" value="#{kontroler.osoba.nazwisko}" title="Nazwisko" />
-                        <h:outputLabel value="Mail:" for="mail" />
-                        <h:inputText id="mail" value="#{kontroler.osoba.mail}" title="Mail" />
-                        <h:outputLabel value="Login:" for="login" />
-                        <h:inputText id="login" value="#{kontroler.osoba.login}" title="Login" />
-                        <h:outputLabel value="Haslo:" for="haslo" />
-                        <h:inputText id="haslo" value="#{kontroler.osoba.haslo}" title="Haslo" />
+                        <p:outputLabel value="Login:" for="login" />
+                        <p:inputText id="login" value="#{kontroler.osoba.login}" title="Login" />
+                        <p:outputLabel value="Haslo:" for="haslo" />
+                        <p:password id="haslo" value="#{kontroler.osoba.haslo}" title="Haslo" />
                         <f:facet name="footer">
-                            <h:commandButton value="Rejestacja" action="#{kontroler.dodajOsobe()}"/>
+                            <p:commandButton value="Logowanie" style="width: 100%"/>
                         </f:facet>
                     </h:panelGrid>
                 </h:form>
+            </div>
+        </p:tab>
+        <p:tab title="Rejestracja">
+            <f:view>
+                <div align="center">
+                    <h:form>
+                        <h1><h:outputText value="Podaj swoje dane:"/></h1>
+                            <h:panelGrid columns="2">
+                                <p:outputLabel value="Imie:" for="imie" />
+                                <p:inputText id="imie" value="#{kontroler.osoba.imie}" title="Imie" />
+                                <p:outputLabel value="Nazwisko:" for="nazwisko" />
+                                <p:inputText id="nazwisko" value="#{kontroler.osoba.nazwisko}" title="Nazwisko" />
+                                <p:outputLabel value="Mail:" for="mail" />
+                                <p:inputText id="mail" value="#{kontroler.osoba.mail}" title="Mail" />
+                                <p:outputLabel value="Login:" for="login" />
+                                <p:inputText id="login" value="#{kontroler.osoba.login}" title="Login" />
+                                <p:outputLabel value="Haslo:" for="haslo" />
+                                <p:password id="haslo" value="#{kontroler.osoba.haslo}" title="Haslo" feedback="true"/>
+                                <f:facet name="footer">
+                                    <p:commandButton value="Rejestacja" action="#{kontroler.dodajOsobe()}" style="width: 100%"/>
+                                </f:facet>
+                            </h:panelGrid>
+                    </h:form>
+                </div>    
             </f:view>
 
         </p:tab>

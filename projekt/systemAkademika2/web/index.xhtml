@@ -32,11 +32,11 @@
                 <h:form>
                     <h:panelGrid columns="2">
                         <p:outputLabel value="Login:" for="login" />
-                        <p:inputText id="login" value="#{kontroler.osoba.login}" title="Login" />
+                        <p:inputText id="login" value="#{kontroler.osoba.login}" title="Login" required="true"/>
                         <p:outputLabel value="Haslo:" for="haslo" />
-                        <p:password id="haslo" value="#{kontroler.osoba.haslo}" title="Haslo" />
+                        <p:password id="haslo" value="#{kontroler.osoba.haslo}" title="Haslo" required="true"/>
                         <f:facet name="footer">
-                            <p:commandButton value="Logowanie" style="width: 100%"/>
+                            <p:commandButton value="Logowanie" style="width: 100%" action="#{kontroler.logowanie()}"/>
                         </f:facet>
                     </h:panelGrid>
                 </h:form>
@@ -49,17 +49,18 @@
                         <h1><h:outputText value="Podaj swoje dane:"/></h1>
                             <h:panelGrid columns="2">
                                 <p:outputLabel value="Imie:" for="imie" />
-                                <p:inputText id="imie" value="#{kontroler.osoba.imie}" title="Imie" />
+                                <p:inputText id="imie" value="#{kontroler.osoba.imie}" title="Imie" required="true"/>
                                 <p:outputLabel value="Nazwisko:" for="nazwisko" />
-                                <p:inputText id="nazwisko" value="#{kontroler.osoba.nazwisko}" title="Nazwisko" />
+                                <p:inputText id="nazwisko" value="#{kontroler.osoba.nazwisko}" title="Nazwisko" required="true"/>
                                 <p:outputLabel value="Mail:" for="mail" />
-                                <p:inputText id="mail" value="#{kontroler.osoba.mail}" title="Mail" />
+                                <p:inputText id="mail" value="#{kontroler.osoba.mail}" title="Mail" required="true"/>
                                 <p:outputLabel value="Login:" for="login" />
-                                <p:inputText id="login" value="#{kontroler.osoba.login}" title="Login" />
+                                <p:inputText id="login" value="#{kontroler.osoba.login}" title="Login" required="true"/>
                                 <p:outputLabel value="Haslo:" for="haslo" />
-                                <p:password id="haslo" value="#{kontroler.osoba.haslo}" title="Haslo" feedback="true"/>
+                                <p:password id="haslo" value="#{kontroler.osoba.haslo}" title="Haslo" feedback="true" required="true"/>
                                 <f:facet name="footer">
                                     <p:commandButton value="Rejestacja" action="#{kontroler.dodajOsobe()}" style="width: 100%"/>
+                                    
                                 </f:facet>
                             </h:panelGrid>
                     </h:form>

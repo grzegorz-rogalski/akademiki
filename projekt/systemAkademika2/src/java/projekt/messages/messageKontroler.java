@@ -7,6 +7,7 @@
 package projekt.messages;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import org.primefaces.context.RequestContext;
 
 /**
@@ -32,6 +33,8 @@ public class messageKontroler {
         RequestContext.getCurrentInstance().showMessageInDialog(message);
     }
     
-    
+    public void error() {
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error!", "Wypełnij wszystkie pola!"));
+    }
     
 }

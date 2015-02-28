@@ -31,11 +31,15 @@ public class kontroler {
     
     private BazaPearson osoba;
     private List<BazaPearson> listaOsob = new ArrayList<>();
+    private List<BazaPearson> listaOsobTemp = new ArrayList<>();
     //Zmienne !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     
     public kontroler() {
         this.message = new messageKontroler();
         osoba=new BazaPearson();
+        
+        System.out.println("###############################################################");
+        System.out.println("###############################################################");
     }
     
     //Funkcje obslugi zdarzen bazy ###########################
@@ -43,14 +47,18 @@ public class kontroler {
     //dodaje osobe do bazy
     public String dodajOsobe()
     {
+        System.out.println("@@@@@@@@@@@@@@@@@@");
         request.createOsoba(osoba);
+        System.out.println("@@@@@@@@@@@@@@@@@@");
         return null;
     }
     
     //tworzy liste wszystkich osob z bazy
     public String wszystkieOsoby()
     {
+        System.out.println("@@@@@@@@@@@@@@@@@@!");
         listaOsob=request.allPeople();
+        System.out.println("@@@@@@@@@@@@@@@@@@!");
         return null;
     }
     
@@ -62,18 +70,22 @@ public class kontroler {
     
     public BazaPearson osobaPoLogin(String log)
     {
-        listaOsob=request.findLog(log);
-        if(listaOsob.isEmpty())
+        listaOsobTemp=request.findLog(log);
+        if(listaOsobTemp.isEmpty())
         {
             message.logwanieError();
             return null;
         }
-        BazaPearson temp=listaOsob.get(0);
+        BazaPearson temp=listaOsobTemp.get(0);
         return temp;
     }
     
     //Funkcje obslugi zdarzen bazy ###########################
     
+    public void TEST()
+    {
+        request.update("a", "haslo", "test");
+    }
     
     //funkcje przejscia &&&&&&&&&&&&&&&&&&&&&&&&
     
@@ -85,18 +97,37 @@ public class kontroler {
         if (temp!=null&&temp.getLogin().equals(osoba.getLogin())&&temp.getHaslo().equals(osoba.getHaslo()))
         {
             osoba=temp;
-            System.out.println("TAK!!!!!!!!!!!!!!!!!!!!  "+temp.getImie());
-            return "test.xhtml";
+            String result=przejdzDo(osoba.getStatus());
+            return result;
         }
         else
         {
             message.logwanieError();
         }
-        return null;
+        return "index.xhtml";
     }
     
-    //funkcje przejscia &&&&&&&&&&&&&&&&&&&&&&&&
-    
+    //funkcje  &&&&&&&&&&&&&&&&&&&&&&&&
+    public String przejdzDo(String status)
+    {
+        if(status.equals("admin"))
+        {
+            return "STARTadmin";
+        }
+            
+        if(status=="brak")
+            return null;
+        if(status=="mieszkaniec")
+            return null;
+        if(status=="pracownikStaly")
+            return null;
+        if(status=="recepcjonista")
+            return null;
+        if(status=="zablokowany")
+            return null;
+        return "index";
+        
+    }
     
     //GETERY SETERY @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     public BazaPearson getOsoba() {

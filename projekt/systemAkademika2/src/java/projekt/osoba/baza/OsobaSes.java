@@ -39,6 +39,15 @@ public class OsobaSes {
         if(list.isEmpty())
         {
             message.rejestracja();
+            list=allPeople();
+            if(list.isEmpty()||list.size()==1)
+            {
+                osoba.setStatus("admin");
+            }
+            else
+            {
+                osoba.setStatus("brak");
+            }
             manager.persist(osoba);
         }
         else
@@ -68,5 +77,42 @@ public class OsobaSes {
         Query query = manager.createQuery(cq);
         List<BazaPearson> result = query.getResultList();
         return result;
+    }
+    
+    public void update(String kto, String co, String na)
+    {
+        List<BazaPearson> result=findLog(kto);
+        temp=result.get(0);
+        if(co=="imie")
+        {
+            manager.getTransaction().begin();
+            temp.setImie(na);
+            manager.getTransaction().commit();
+        }
+        if(co=="nazwisko")
+        {
+            manager.getTransaction().begin();
+            temp.setNazwisko(na);
+            manager.getTransaction().commit();
+        }
+        if(co=="mail")
+        {
+            manager.getTransaction().begin();
+            temp.setMail(na);
+            manager.getTransaction().commit();
+        }
+        if(co=="haslo")
+        {
+            manager.getTransaction().begin();
+            temp.setHaslo(na);
+            manager.getTransaction().commit();
+        }
+        if(co=="IdPokoju")
+        {
+            manager.getTransaction().begin();
+            int foo = Integer.parseInt(na);
+            temp.setIdPokoju(foo);
+            manager.getTransaction().commit();
+        }
     }
 }

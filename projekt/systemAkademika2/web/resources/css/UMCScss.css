@@ -13,6 +13,7 @@ body {
     font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
     color: black;  
     margin: 10px;
+    background-color: lightyellow;
 }
 
 h1 {

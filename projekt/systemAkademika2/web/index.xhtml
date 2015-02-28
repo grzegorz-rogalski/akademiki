@@ -13,7 +13,7 @@
             <ui:define name="top">
                 <div align="center">
                     <p:panel>
-                        <h2>Witaj!!!</h2>
+                        <h2>System e-Akademik</h2>
                     </p:panel>
                 </div>
             </ui:define>
@@ -22,6 +22,7 @@
                 <p:panel>
                     <h:form>
                         <div align="center">
+                            <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
                             <h2>Dokonaj logowania lub rejestracji</h2>
                         </div>
                     </h:form>
@@ -30,13 +31,21 @@
         <p:tab title="Logowanie">
             <div align="center">
                 <h:form>
-                    <h:panelGrid columns="2">
+                    <h:panelGrid columns="3">
                         <p:outputLabel value="Login:" for="login" />
                         <p:inputText id="login" value="#{kontroler.osoba.login}" title="Login" required="true"/>
+                        <p:message for="login" />
+                        
                         <p:outputLabel value="Haslo:" for="haslo" />
                         <p:password id="haslo" value="#{kontroler.osoba.haslo}" title="Haslo" required="true"/>
+                        <p:message for="haslo" />
+                        
                         <f:facet name="footer">
-                            <p:commandButton value="Logowanie" style="width: 100%" action="#{kontroler.logowanie()}"/>
+                            <h:panelGrid columns="1">
+                                <p:commandButton value="Logowanie" style="width: 100%" action="#{kontroler.logowanie()}"/>
+                                <h:commandLink value="Poproś o odzyskanie hasła"/>
+                            </h:panelGrid>
+                            
                         </f:facet>
                     </h:panelGrid>
                 </h:form>
@@ -47,17 +56,28 @@
                 <div align="center">
                     <h:form>
                         <h1><h:outputText value="Podaj swoje dane:"/></h1>
-                            <h:panelGrid columns="2">
+                            <h:panelGrid columns="3">
+                                
                                 <p:outputLabel value="Imie:" for="imie" />
                                 <p:inputText id="imie" value="#{kontroler.osoba.imie}" title="Imie" required="true"/>
+                                <p:message for="imie" />
+                                
                                 <p:outputLabel value="Nazwisko:" for="nazwisko" />
                                 <p:inputText id="nazwisko" value="#{kontroler.osoba.nazwisko}" title="Nazwisko" required="true"/>
+                                <p:message for="nazwisko" />
+                                
                                 <p:outputLabel value="Mail:" for="mail" />
                                 <p:inputText id="mail" value="#{kontroler.osoba.mail}" title="Mail" required="true"/>
+                                <p:message for="mail" />
+                                
                                 <p:outputLabel value="Login:" for="login" />
                                 <p:inputText id="login" value="#{kontroler.osoba.login}" title="Login" required="true"/>
+                                <p:message for="login" />
+                                
                                 <p:outputLabel value="Haslo:" for="haslo" />
                                 <p:password id="haslo" value="#{kontroler.osoba.haslo}" title="Haslo" feedback="true" required="true"/>
+                                <p:message for="haslo" />
+                                
                                 <f:facet name="footer">
                                     <p:commandButton value="Rejestacja" action="#{kontroler.dodajOsobe()}" style="width: 100%"/>
                                     

@@ -59,9 +59,9 @@ public class kontroler {
     //tworzy liste wszystkich osob z bazy
     public String wszystkieOsoby()
     {
-        System.out.println("@@@@@@@@@@@@@@@@@@!");
+        System.out.println("################################################!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!@@@@@@@@@@@@@@@@@@!");
         listaOsob=request.allPeople();
-        System.out.println("@@@@@@@@@@@@@@@@@@!");
+        System.out.println("################################################!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!@@@@@@@@@@@@@@@@@@!");
         return null;
     }
     

@@ -12,3 +12,9 @@ os.arch=amd64
 os.version=6.3
 derby.system.home=C:\Users\Komputer\Desktop\akademiki\projekt\systemAkademika\New Folder
 Uruchomiono program ³aduj¹cy klasê bazy danych - derby.database.classpath=''
+----------------------------------------------------------------
+Sun Mar 01 18:02:35 CET 2015: Shutting down Derby engine
+----------------------------------------------------------------
+Sun Mar 01 18:02:35 CET 2015:
+Wy³¹czanie instancji a816c00e-014b-d5cf-bb58-000011e58774
+----------------------------------------------------------------

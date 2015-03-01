@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../AdminDecorator.xhtml">
+
+            <ui:define name="content">
+                <h:form>
+                    <div align="center">
+                        <h2>Menu:   !Przeglądanie danych!    Edycja danych    Pokoje    Edycja pokojów</h2>
+                    </div>
+                    <div align="center">
+                        <f:view>
+                            <h:form>
+                                <h:commandButton value="Lista osób" action="#{kontroler.wszystkieOsoby()}"/>
+                                <h:dataTable value="#{kontroler.listaOsob}" var="item" cellpadding="5">
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="Imie"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.imie}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="Nazwisko"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.nazwisko}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="Mail"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.mail}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="Login"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.login}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="Haslo"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.haslo}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="IdPokoju"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.idPokoju}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="Status"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.status}"/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="Id"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.id}"/>
+                                    </h:column>
+                                </h:dataTable>
+                            </h:form>
+                        </f:view>
+
+                    </div>
+                    
+                    
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

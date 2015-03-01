@@ -15,13 +15,9 @@
 
         <div id="top">
             <ui:insert name="top">
-                <p:panel style="background-color: red">
-                    <div align="center">
-                        <h:form>
-                            Error w panelu administratora
-                        </h:form>
-                    </div>
-                </p:panel>
+                <div align="center">
+                    <h2>#{kontroler.osoba.status} #{kontroler.admin.osoba.imie}</h2>
+                </div>
             </ui:insert>
         </div>
         <div>
@@ -30,7 +26,7 @@
                     <div align="center" style="height: auto">
                         <h:form>
                             <h:panelGrid cellpadding="5" columns="1">
-                                <h:commandLink value="Funkcja" />
+                                <h:commandLink value="Dane osobowe" action="adminDane" />
                                 <h:commandLink value="Funkcja" />
                                 <h:commandLink value="Funkcja" />
                                 <h:commandLink value="Funkcja" />

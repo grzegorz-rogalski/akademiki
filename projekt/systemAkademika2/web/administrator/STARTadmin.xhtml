@@ -11,21 +11,11 @@
 
             <ui:define name="top">
                 <div align="center">
-                    <h2>#{kontroler.osoba.status} #{kontroler.osoba.imie}</h2>
+                    <h2>#{kontroler.osoba.status} #{kontroler.admin.osoba.imie}</h2>
                 </div>
             </ui:define>
 
-            <ui:define name="left">
-                <p:panel>
-                    <div align="center">
-                        <h:form>
-                            <h:panelGrid columns="1" cellpadding="5">
-                                <h:commandLink value="Użytkownicy" action="MENUuser"/>
-                            </h:panelGrid>
-                        </h:form>
-                    </div>
-                </p:panel>
-            </ui:define>
+            
 
             <ui:define name="content">
                 content

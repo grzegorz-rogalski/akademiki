@@ -6,7 +6,7 @@
     <navigation-rule>
         <from-view-id>*</from-view-id>
         <navigation-case>
-            <from-outcome>index</from-outcome>
+            <from-outcome>home</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
@@ -14,18 +14,8 @@
         <from-view-id>/index.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>STARTadmin</from-outcome>
+            <if>#{kontroler.zalogowany}</if>
             <to-view-id>/administrator/STARTadmin.xhtml</to-view-id>
-        </navigation-case>
-    </navigation-rule>
-    <navigation-rule>
-        <from-view-id>/administrator/STARTadmin.xhtml</from-view-id>
-        <navigation-case>
-            <from-outcome>MENUuser</from-outcome>
-            <to-view-id>/administrator/menu/urzytkownicy.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
-            <from-outcome>test</from-outcome>
-            <to-view-id>/administrator/test.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 </faces-config>

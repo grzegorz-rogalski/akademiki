@@ -6,6 +6,7 @@
 
 package projetk.kontroler;
 
+import admin.kontroler.adminKontroler;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
@@ -29,17 +30,19 @@ public class kontroler {
     private OsobaSes request;
     private messageKontroler message;
     
+    //Kontrolery typów kont
+    public adminKontroler admin=new adminKontroler();
+    
     private BazaPearson osoba;
     private List<BazaPearson> listaOsob = new ArrayList<>();
     private List<BazaPearson> listaOsobTemp = new ArrayList<>();
+    boolean zalogowany;
     //Zmienne !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     
     public kontroler() {
         this.message = new messageKontroler();
         osoba=new BazaPearson();
-        
-        System.out.println("###############################################################");
-        System.out.println("###############################################################");
+        zalogowany=false;
     }
     
     //Funkcje obslugi zdarzen bazy ###########################
@@ -107,11 +110,19 @@ public class kontroler {
         return "index.xhtml";
     }
     
+    public String wyloguj()
+    {
+        zalogowany=false;
+        return "home";
+    }
+    
     //funkcje  &&&&&&&&&&&&&&&&&&&&&&&&
     public String przejdzDo(String status)
     {
         if(status.equals("admin"))
         {
+            admin.setOsoba(osoba);
+            zalogowany=true;
             return "STARTadmin";
         }
             
@@ -145,6 +156,23 @@ public class kontroler {
     public void setListaOsob(List<BazaPearson> listaOsob) {
         this.listaOsob = listaOsob;
     }
-    //GETERY SETERY @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     
+    public adminKontroler getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(adminKontroler admin) {
+        this.admin = admin;
+    }
+    
+
+    public boolean isZalogowany() {
+        return zalogowany;
+    }
+
+    public void setZalogowany(boolean zalogowany) {
+        this.zalogowany = zalogowany;
+    }
+    //GETERY SETERY @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 }

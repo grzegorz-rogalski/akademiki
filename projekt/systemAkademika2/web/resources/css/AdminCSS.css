@@ -34,10 +34,12 @@ and open the template in the editor.
 
 #left {
     float: left;
-    background-color: #ece3a5;
+    background-color: whitesmoke;
     padding: 5px;
     width: 150px;
     position:absolute;
+    border-radius: 25px 25px 25px 25px;
+    border: 2px dashed blueviolet;
 }
 
 #right {
@@ -60,6 +62,7 @@ and open the template in the editor.
     padding: 5px;
     margin-left: 170px;
     height: auto;
+    float: left;
 }
 
 .right_content {

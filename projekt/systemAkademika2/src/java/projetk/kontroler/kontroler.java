@@ -29,7 +29,7 @@ public class kontroler {
     @EJB
     private OsobaSes request;
     private messageKontroler message;
-    
+     
     //Kontrolery typów kont
     public adminKontroler admin=new adminKontroler();
     

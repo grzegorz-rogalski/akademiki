@@ -24,7 +24,7 @@ public class adminKontroler {
     BazaPearson osoba=new BazaPearson();
     private boolean edit;
     BazaPearson osoba2=new BazaPearson();
-    
+
         
     public adminKontroler() {
         edit=false;
@@ -62,10 +62,13 @@ public class adminKontroler {
     public void setOsoba2(BazaPearson osoba2) {
         this.osoba2 = osoba2;
     }
+    
+    
 
     public String zapisz()
     {
-        return"newTemplateClient.xhtml";
+        //osoba2.setImie(im);
+        return"success";
     }
     
     public String kolor()

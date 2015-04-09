@@ -10,7 +10,7 @@ PLAN Marzec:
 * Stworzenie tempolate'ow
 * Tworzenie grafik
 * Dodanie edycji bazy danych
-* Rozwijanie poszczególnych kont
+* Stworzenie poszczególnych kont
 
 PLAN Kwiecień:
 * Personalizacja klientów szablonu

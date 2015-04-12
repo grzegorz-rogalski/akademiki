@@ -16,6 +16,11 @@ import org.primefaces.context.RequestContext;
  */
 public class messageKontroler {
     
+    public void yourMessage(String top,String contents) {
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, top, contents);
+        RequestContext.getCurrentInstance().showMessageInDialog(message);
+    }
+    
     public void rejestracja() {
         FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Dokonano rejestracji", "Po weryfikacji przez administratora otrzymasz pełen dostęp do serwisu."
                 + " Gdy proces zostanie zakończony otrzymasz maila.");

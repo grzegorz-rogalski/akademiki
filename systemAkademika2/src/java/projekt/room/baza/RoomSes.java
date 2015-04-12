@@ -35,13 +35,13 @@ public class RoomSes {
         List<RoomDatabase> list = findLog(pokoj.getId());
         if(list.isEmpty())
         {
-            message.rejestracja();
+            //message.rejestracja();
             //list=allRooms();
-
+            message.yourMessage("Dodano", "element został dodany do bazy");
             manager.persist(pokoj);
         }
         else
-            message.rejestracjaError();
+            message.yourMessage("Niepowodzenie", "nie udało się dodać elementu do bazy");
     }
     
     public List<RoomDatabase> allRooms() {

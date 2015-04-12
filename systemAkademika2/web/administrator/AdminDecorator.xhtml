@@ -26,18 +26,18 @@
                     <div align="center" style="height: auto">
                         <h:form>
                             <h:panelGrid cellpadding="5" columns="1">
-                                <h:commandLink value="Dane osobowe" action="adminDane" />
-                                <h:commandLink value="Obsługa pokoi" action="dodaniePokoju"/>
-                                <h:commandLink value="Obsługa sprzętu" action="dodanieSprzetu"/>
-                                <h:commandLink value="Funkcja" />
-                                <h:commandLink value="Wyloguj" action="#{pearsonkontroler.wyloguj()}"/>
+                                <p:commandLink value="Dane osobowe" action="adminDane" />
+                                <p:commandLink value="Obsługa pokoi" action="dodaniePokoju"/>
+                                <p:commandLink value="Obsługa sprzętu" action="dodanieSprzetu"/>
+                                <p:commandLink value="Dodanie wydarzenia" action="eventCreator" />
+                                <p:commandLink value="Wyloguj" action="#{pearsonkontroler.wyloguj()}"/>
                             </h:panelGrid>
                         </h:form>
                     </div>
                 </ui:insert>
             </div>
             <div id="content" class="left_content">
-                <ui:insert name="content">Content</ui:insert>
+                <ui:insert name="content"><b>Zapraszamy do korzystania z systemu.</b></ui:insert>
             </div>
         </div>
         <div id="bottom">

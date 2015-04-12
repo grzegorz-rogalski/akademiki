@@ -38,9 +38,14 @@
             <from-outcome>dodaniePokoju</from-outcome>
             <to-view-id>/administrator/opcje/adminDodaniePokoju.xhtml</to-view-id>
         </navigation-case>
+        
         <navigation-case>
             <from-outcome>dodanieSprzetu</from-outcome>
             <to-view-id>/administrator/opcje/adminDodanieSprzetu.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>eventCreator</from-outcome>
+            <to-view-id>/administrator/opcje/eventCreator.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     

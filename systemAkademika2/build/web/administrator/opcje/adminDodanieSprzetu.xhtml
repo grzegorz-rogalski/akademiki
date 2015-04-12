@@ -25,9 +25,7 @@
                     <div align="center">
                         <h:panelGrid columns="2">
                             
-                            <h:outputText value="ID: "/>
-                            <h:inputText value="#{stuffControler.przedmiot.id}"/>
-                                  
+                           
                             <h:outputText value="Nazwa: "/>
                             <h:inputText value="#{stuffControler.przedmiot.name}"/>
                             
@@ -56,7 +54,7 @@
                                         <f:facet name="header">
                                             <h:outputText value="ID     "/>
                                         </f:facet>
-                                      <h:inputText value="#{item.id}"/>
+                                      <h:outputText value="#{item.id}"/>
                                     </h:column>
                                 
                                     <h:column rendered="#{!stuffControler.wyswietl}">

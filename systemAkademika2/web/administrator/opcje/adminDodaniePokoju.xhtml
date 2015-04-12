@@ -19,10 +19,7 @@
                     <div align="center">
                         <h:panelGrid columns="2">
                             
-                            <h:outputText value="ID: "/>
-                            <h:inputText value="#{roomkontroler.pokoj.id}"/>
-                            
-                        
+    
                             <h:outputText value="Pojemność: "/>
                             <h:inputText value="#{roomkontroler.pokoj.capacity}"/>
                             
@@ -51,7 +48,7 @@
                                         <f:facet name="header">
                                             <h:outputText value="ID     "/>
                                         </f:facet>
-                                    <h:inputText value="#{item.id}"/>
+                                    <h:outputText value="#{item.id}"/>
                                     </h:column>
                                 
                                 <h:column rendered="#{!roomkontroler.wyswietl}">

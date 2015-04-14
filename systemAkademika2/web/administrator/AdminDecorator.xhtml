@@ -8,15 +8,27 @@
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <h:outputStylesheet name="./css/AdminCSS.css"/>
-        <title>Facelets Template</title>
+        <title>eAkademik</title>
     </h:head>
-
     <h:body>
-
         <div id="top">
             <ui:insert name="top">
                 <div align="center">
-                    <h2>#{pearsonkontroler.osoba.status} #{pearsonkontroler.osoba.imie}</h2>
+                    <h2>
+                        System obsługi akademika
+                    </h2>
+                </div>
+                <div>
+                    <h4>
+                        Zalogowany jako:
+                    </h4>
+                    <h3>
+                        #{pearsonkontroler.osoba.status}
+                    </h3>
+                    <h4>
+                        #{pearsonkontroler.osoba.imie}
+                    </h4>
+                    
                 </div>
             </ui:insert>
         </div>
@@ -26,28 +38,27 @@
                     <div align="center" style="height: auto">
                         <h:form>
                             <h:panelGrid cellpadding="5" columns="1">
-                                <p:commandLink value="Dane osobowe" action="adminDane" />
-                                <p:commandLink value="Obsługa pokoi" action="dodaniePokoju"/>
-                                <p:commandLink value="Obsługa sprzętu" action="dodanieSprzetu"/>
+                                <h:commandLink value="Dane osobowe" action="adminDane" />
+                                <h:commandLink value="Obsługa pokoi" action="dodaniePokoju"/>
+                                <h:commandLink value="Obsługa sprzętu" action="dodanieSprzetu"/>
                                 <p:commandLink value="Dodanie wydarzenia" action="eventCreator" />
-                                <p:commandLink value="Wyloguj" action="#{pearsonkontroler.wyloguj()}"/>
+                                <h:commandLink value="Wyloguj" action="#{pearsonkontroler.wyloguj()}"/>
                             </h:panelGrid>
                         </h:form>
                     </div>
                 </ui:insert>
             </div>
             <div id="content" class="left_content">
-                <ui:insert name="content"><b>Zapraszamy do korzystania z systemu.</b></ui:insert>
+                <ui:insert name="content">Wybierz opcję z menu, aby nią zarządzać.</ui:insert>
             </div>
         </div>
         <div id="bottom">
             <ui:insert name="bottom">
                 <div align="center">
-                    <h3>@Projekt zespołowy ~ admin</h3>
+                    <h1>@Projekt zespołowy</h1>
+                    <h4>Marek Szymański - Grzegorz Rogalski - Sylwester Osik - Anna Stepaniuk</h4>
                 </div>
             </ui:insert>
         </div>
-
     </h:body>
-
 </html>

@@ -9,12 +9,27 @@
 
         <ui:composition template="./AdminDecorator.xhtml">
 
-            <ui:define name="top">
+      
+            <ui:insert name="top">
                 <div align="center">
-                    
-                    <h2>#{pearsonkontroler.osoba.status} #{pearsonkontroler.osoba.imie}</h2>
+                    <h2>
+                        System obsługi akademika
+                    </h2>
                 </div>
-            </ui:define>
+                <div>
+                    <h4>
+                        Zalogowany jako:
+                    </h4>
+                    <h3>
+                        #{pearsonkontroler.osoba.status}
+                    </h3>
+                    <h4>
+                        #{pearsonkontroler.osoba.imie}
+                    </h4>
+                    
+                </div>
+            </ui:insert>
+       
 
             
 

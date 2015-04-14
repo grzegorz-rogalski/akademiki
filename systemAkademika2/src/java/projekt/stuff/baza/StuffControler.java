@@ -43,7 +43,7 @@ public class StuffControler {
         wyswietl = false;
     }
     
-    public void addRoom()
+    public void addStuff()
     {
         stuffManager.createStuff(przedmiot);
     }

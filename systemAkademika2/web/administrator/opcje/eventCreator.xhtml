@@ -11,11 +11,29 @@
         <ui:composition template="./../AdminDecorator.xhtml">
 
             <ui:define name="top">
-                Event
+               <div align="center">
+                    <h2>
+                        System obsługi akademika
+                    </h2>
+                </div>
+                <div>
+                    <h4>
+                        Zalogowany jako:
+                    </h4>
+                    <h3>
+                        #{pearsonkontroler.osoba.status}
+                    </h3>
+                    <h4>
+                        #{pearsonkontroler.osoba.imie}
+                    </h4>
+                    
+                </div>
+                
                 <h:outputText value="#{eventkontroler.setEventList(eventkontroler.allEv())}"/>
             </ui:define>
 
             <ui:define name="content">
+                <h5>Obsługa zdarzeń</h5>
                 <div align="center">
                     <h:form id="form">
                         <p:panel>

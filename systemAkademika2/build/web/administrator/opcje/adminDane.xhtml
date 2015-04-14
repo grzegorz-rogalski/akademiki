@@ -9,21 +9,23 @@
     <body>
 
         <ui:composition template="./../AdminDecorator.xhtml">
-            <ui:define name="top">
+            <!---ui:define name="top">
                 <div align="center">
                     <h:form>
                         <h:outputText value="#{pearsonkontroler.setWyswietl(false)}"/>
                     </h:form>
                 </div>
-            </ui:define>
+            </ui:define-->
             <ui:define name="content">
                 <h:form id="form">
                     <div align="center">
-                        <h2>Menu:   !Przeglądanie danych!    Edycja danych    Pokoje    Edycja pokojów</h2>
+                        <h5>Zarządzanie bazą osób:</h5>
                         
                     </div>
                     <div align="center">
-                        <h:commandButton value="Lista osób" action="#{pearsonkontroler.wszystkieOsoby()}"/>                        
+                        <p:commandLink action="#{pearsonkontroler.wszystkieOsoby()}" update=":form">
+                                    <h:graphicImage name="buttons/AdminWyswietl.jpg" />
+                        </p:commandLink>                       
                         <h:panelGrid columns="2">
                                 <h:dataTable value="#{pearsonkontroler.listaOsob}" var="item">                                   
                                     <h:column rendered="#{!pearsonkontroler.wyswietl}">
@@ -126,8 +128,12 @@
                                     
                                 </h:dataTable>
                             <h:panelGrid columns="1">
-                                <p:commandButton value="Edytuj" action="#{pearsonkontroler.setWyswietl(true)}" update="form"/>
-                                <p:commandButton value="Zapisz" action="#{pearsonkontroler.editAllPeople()}" update=":form"/>
+                                <p:commandLink action="#{pearsonkontroler.setWyswietl(true)}" update=":form">
+                                    <h:graphicImage name="buttons/AdminEdycja.jpg" />
+                                </p:commandLink>                
+                                <p:commandLink action="#{pearsonkontroler.editAllPeople()}" update=":form">
+                                    <h:graphicImage name="buttons/AdminZapis.jpg" />
+                                </p:commandLink>
                             </h:panelGrid>
                         </h:panelGrid>        
                     </div>                    

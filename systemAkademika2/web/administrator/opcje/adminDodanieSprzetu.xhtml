@@ -7,19 +7,19 @@
       xmlns:p="http://primefaces.org/ui">
 
     <body>
-<ui:define name="top">
+            
+        <ui:composition template="./../AdminDecorator.xhtml">
+            <!--ui:define name="top">
                 <div align="center">
                     <h:form>
                         <h:outputText value="#{stuffControler.setWyswietl(false)}"/>
                     </h:form>
                 </div>
-            </ui:define>
-        <ui:composition template="./../AdminDecorator.xhtml">
-
+            </ui:define-->
             <ui:define name="content">
                <h:form id="form1">
                     <div align="center">
-                        <h2>Menu:       </h2>
+                        <h5>Zarządzanie bazą sprzętu:</h5>
                          <h:outputText value="#{stuffControler.setWyswietl(false)}"/>
                     </div>
                     <div align="center">
@@ -32,16 +32,20 @@
                             <h:outputText value="Status: "/>
                             <h:inputText value="#{stuffControler.przedmiot.status}"/>
                             
-                            <h:commandButton value="dodaj" action="#{stuffControler.addRoom()}"/>
+                            <p:commandLink action="#{stuffControler.addStuff()}" update=":forma">
+                                    <h:graphicImage name="buttons/AdminDodaj.jpg" />
+                            </p:commandLink>
                             
-                            
+                            <p:commandLink action="#{stuffControler.wszystkiePrzedmioty()}" update=":forma">
+                                    <h:graphicImage name="buttons/AdminWyswietl.jpg" />
+                            </p:commandLink> 
                             
                         </h:panelGrid>
                     </div>
                </h:form>
                 <h:form id="forma">
                        
-                        <h:commandButton value="Lista sprzetu" action="#{stuffControler.wszystkiePrzedmioty()}"/>                        
+                                       
                         <h:panelGrid columns="2" cellpadding="5">
                             <h:dataTable  value="#{stuffControler.listaPrzedmiotow}" var="item" >                                   
                                 <h:column rendered="#{!stuffControler.wyswietl}">
@@ -88,8 +92,12 @@
                                 </h:dataTable>
                             
                            <h:panelGrid columns="1">
-                                <p:commandButton value="Edytuj" action="#{stuffControler.setWyswietl(true)}" />
-                                <p:commandButton value="Zapisz" action="#{stuffControler.editAll()}" update=":forma"/>
+                                <p:commandLink action="#{stuffControler.setWyswietl(true)}" update=":forma">
+                                    <h:graphicImage name="buttons/AdminEdycja.jpg" />
+                                </p:commandLink>
+                                <p:commandLink action="#{stuffControler.editAll()}" update=":forma">
+                                    <h:graphicImage name="buttons/AdminZapis.jpg" />
+                                </p:commandLink>
                             </h:panelGrid>
                         </h:panelGrid>  
                     

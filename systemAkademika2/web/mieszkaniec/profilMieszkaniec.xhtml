@@ -10,12 +10,9 @@
         <ui:composition template="./mieszkaniecDecorator.xhtml">
 
             <ui:define name="content">
+                <h:form>
                 <div align="center">
-                <f:view>
-
-
-                    <h:form>
-                        
+                    <h5>Podgląd danych profilowych:</h5>
                         <h:panelGrid columns="2" cellpadding="5">
                             <h:outputLabel value="Imie:" for="imie" />
                             <h:outputText id="imie" value="#{pearsonkontroler.osoba.imie}" title="Imie" />
@@ -29,13 +26,10 @@
                             <h:outputText id="haslo" value="#{pearsonkontroler.osoba.haslo}" title="Haslo" />
                             <h:outputLabel value="IdPokoju:" for="idPokoju" />
                             <h:outputText id="idPokoju" value="#{pearsonkontroler.osoba.idPokoju}" title="IdPokoju" />
-                            <f:facet name="footer">
                                 <h:commandLink value="Poproś o zmianę danych"/>
-                            </f:facet>
                         </h:panelGrid>
-                    </h:form>
-                </f:view>
                 </div>
+                </h:form>
             </ui:define>
 
         </ui:composition>

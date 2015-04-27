@@ -8,28 +8,48 @@
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <h:outputStylesheet name="./css/default.css"/>
-        <h:outputStylesheet name="./css/cssLayout.css"/>
-        <title>Facelets Template</title>
+        <h:outputStylesheet name="./css/MieszkaniecCSS.css"/>
+        <title>eAkademik</title>
     </h:head>
-
     <h:body>
-
         <div id="top">
             <ui:insert name="top">
                 <div align="center">
-                    <h:form>
-                        <p:panel>
-                            Witaj #{pearsonkontroler.osoba.imie}
-                        </p:panel>
-                    </h:form>
+                    <h2>
+                        System obsługi akademika
+                    </h2>
+                </div>
+                <div>
+                    <h4>
+                        Zalogowany jako:
+                    </h4>
+                    <h3>
+                        #{pearsonkontroler.osoba.status}
+                    </h3>
+                    <h4>
+                        #{pearsonkontroler.osoba.imie}
+                    </h4>
+                    
                 </div>
             </ui:insert>
         </div>
 
-        <div id="content" class="center_content">
-            <ui:insert name="content">
-                <div align="center">
+            <div id="left">
+                <ui:insert name="left">
+                    <div align="center" style="height: auto">
+                        <h:form>
+                            <h:panelGrid cellpadding="5" columns="1">
+                                <h:commandLink value="Dane osobowe" action="profilMieszkaniec" />
+                                <h:commandLink value="Pokój"/>
+                                <h:commandLink value="Wydarzenia"/>
+                                <h:commandLink value="Wyloguj" action="#{pearsonkontroler.wyloguj()}"/>
+                            </h:panelGrid>
+                        </h:form>
+                    </div>
+                </ui:insert>
+            </div>
+        <div id="content" class="left_content">
+                <ui:insert name="content"><div align="center">
                     <h:form>
                         <p:panel>
                             <h:panelGrid columns="2" cellpadding="5">
@@ -41,21 +61,15 @@
                         </p:panel>
                     </h:form>
                 </div>
-            </ui:insert>
+                </ui:insert>
         </div>
-
         <div id="bottom">
             <ui:insert name="bottom">
-            <div align="center">
-                    <h:form>
-                        <p:panel>
-                            @Projekt zespołowy
-                        </p:panel>
-                    </h:form>
+                <div align="center">
+                    <h1>@Projekt zespołowy</h1>
+                    <h4>Marek Szymański - Grzegorz Rogalski - Sylwester Osik - Anna Stepaniuk</h4>
                 </div>
             </ui:insert>
         </div>
-
     </h:body>
-
 </html>

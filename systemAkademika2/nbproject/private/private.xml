@@ -2,6 +2,15 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/H:/DANE_uczelnia/IT/programowanie/java/akademiki/systemAkademika2/web/resources/css/AdminCSS.css</file>
+            <file>file:/H:/DANE_uczelnia/IT/programowanie/java/akademiki/systemAkademika2/web/mieszkaniec/mieszkaniecDecorator.xhtml</file>
+            <file>file:/H:/DANE_uczelnia/IT/programowanie/java/akademiki/systemAkademika2/web/mieszkaniec/STARTmieszkaniec.xhtml</file>
+            <file>file:/H:/DANE_uczelnia/IT/programowanie/java/akademiki/systemAkademika2/web/administrator/opcje/adminDane.xhtml</file>
+            <file>file:/H:/DANE_uczelnia/IT/programowanie/java/akademiki/systemAkademika2/web/mieszkaniec/profilMieszkaniec.xhtml</file>
+            <file>file:/H:/DANE_uczelnia/IT/programowanie/java/akademiki/systemAkademika2/web/administrator/AdminDecorator.xhtml</file>
+            <file>file:/H:/DANE_uczelnia/IT/programowanie/java/akademiki/systemAkademika2/web/administrator/STARTadmin.xhtml</file>
+            <file>file:/H:/DANE_uczelnia/IT/programowanie/java/akademiki/systemAkademika2/web/resources/css/MieszkaniecCSS.css</file>
+        </group>
     </open-files>
 </project-private>

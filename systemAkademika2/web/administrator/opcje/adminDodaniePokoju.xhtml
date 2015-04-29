@@ -30,12 +30,7 @@
                             <h:outputText value="Mieszkalny: "/>
                             <h:inputText value="#{roomkontroler.pokoj.isResidential}"/>
                             
-                            <p:commandLink action="#{roomkontroler.addRoom()}" update=":form">
-                                    <h:graphicImage name="buttons/AdminDodaj.jpg" />
-                            </p:commandLink>
-                            <p:commandLink action="#{roomkontroler.wszystkiePokoje()}" update=":form">
-                                    <h:graphicImage name="buttons/AdminWyswietl.jpg" />
-                            </p:commandLink> 
+                           
                         </h:panelGrid>
                
                         
@@ -93,23 +88,27 @@
                                             <h:outputText value="Czy mieszkalny      "/>
                                         </f:facet>
                                         <h:inputText value="#{item.isResidential}"/>
-                                    </h:column>
+                                </h:column>
                                     
                  
                                     
-                                </h:dataTable>
+                            </h:dataTable>
                         
-                           <h:panelGrid columns="1">
-                                <p:commandLink action="#{roomControler.setWyswietl(true)}" update=":form">
+                        </h:panelGrid>  
+                        <div style="display: block; position: absolute; bottom: 50px; left: 25%">
+                                <p:commandLink action="#{roomControler.setWyswietl(true)}" update=":form" style="margin-left: 10px; margin-right: 10px">
                                     <h:graphicImage name="buttons/AdminEdycja.jpg" />
-                                </p:commandLink>
-                                <p:commandLink action="#{roomControler.editAll()}" update=":form">
+                                </p:commandLink>                
+                                <p:commandLink action="#{roomControler.editAll()}" update=":form" style="margin-left: 10px; margin-right: 10px">
                                     <h:graphicImage name="buttons/AdminZapis.jpg" />
                                 </p:commandLink>
-
-                            </h:panelGrid>
-                        </h:panelGrid>  
-                    
+                                <p:commandLink action="#{pearsonkontroler.wszystkieOsoby()}" update=":form" style="margin-left: 10px; margin-right: 10px">
+                                    <h:graphicImage name="buttons/AdminWyswietl.jpg" />
+                                </p:commandLink>  
+                                <p:commandLink action="#{roomkontroler.addRoom()}" update=":form" style="margin-left: 10px; margin-right: 10px">
+                                    <h:graphicImage name="buttons/AdminDodaj.jpg" />
+                                </p:commandLink>
+                        </div>
                         
                     </div>                    
                 </h:form>          

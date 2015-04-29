@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="./css/MieszkaniecCSS.css"/>
+        <title>eAkademik</title>
+    </h:head>
+    <h:body>
+        <div id="top">
+            <ui:insert name="top">
+                <div align="center">
+                    <h2>
+                        System obsługi akademika
+                    </h2>
+                </div>
+                <div>
+                    <h4>
+                        Zalogowany jako:
+                    </h4>
+                    <h3>
+                        #{pearsonkontroler.osoba.status}
+                    </h3>
+                    <h4>
+                        #{pearsonkontroler.osoba.imie}
+                    </h4>
+                    
+                </div>
+            </ui:insert>
+        </div>
+
+            <div id="left">
+                <ui:insert name="left">
+                    <div align="center" style="height: auto">
+                        <h:form>
+                            <h:panelGrid cellpadding="5" columns="1">
+                                <h:commandLink value="Dane osobowe" action="profilMieszkaniec" />
+                                <h:commandLink value="Pokój"/>
+                                <h:commandLink value="Wydarzenia"/>
+                                <h:commandLink value="Wyloguj" action="#{pearsonkontroler.wyloguj()}"/>
+                            </h:panelGrid>
+                        </h:form>
+                    </div>
+                </ui:insert>
+            </div>
+        <div id="content" class="left_content">
+                <ui:insert name="content"><div align="center">
+                    <h:form>
+                        <p:panel>
+                            <h:panelGrid columns="2" cellpadding="5">
+                                <p:commandButton value="Wydarzenia" style="border-radius: 90px 90px 90px 90px; width: 100px; height: 100px"/>
+                                <p:commandButton value="Pokój" style="border-radius: 90px 90px 90px 90px; width: 100px; height: 100px"/>
+                                <p:commandButton value="Profil" action="profilMieszkaniec" style="border-radius: 90px 90px 90px 90px; width: 100px; height: 100px"/>
+                                <p:commandButton value="Wyloguj"  action="#{pearsonkontroler.wyloguj()}" style="border-radius: 90px 90px 90px 90px; width: 100px; height: 100px"/>
+                            </h:panelGrid>
+                        </p:panel>
+                    </h:form>
+                </div>
+                </ui:insert>
+        </div>
+        <div id="bottom">
+            <ui:insert name="bottom">
+                <div align="center">
+                    <h1>@Projekt zespołowy</h1>
+                    <h4>Marek Szymański - Grzegorz Rogalski - Sylwester Osik - Anna Stepaniuk</h4>
+                </div>
+            </ui:insert>
+        </div>
+    </h:body>
+</html>

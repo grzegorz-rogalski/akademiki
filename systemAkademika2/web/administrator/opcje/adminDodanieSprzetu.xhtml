@@ -32,14 +32,6 @@
                             <h:outputText value="Status: "/>
                             <h:inputText value="#{stuffControler.przedmiot.status}"/>
                             
-                            <p:commandLink action="#{stuffControler.addStuff()}" update=":forma">
-                                    <h:graphicImage name="buttons/AdminDodaj.jpg" />
-                            </p:commandLink>
-                            
-                            <p:commandLink action="#{stuffControler.wszystkiePrzedmioty()}" update=":forma">
-                                    <h:graphicImage name="buttons/AdminWyswietl.jpg" />
-                            </p:commandLink> 
-                            
                         </h:panelGrid>
                     </div>
                </h:form>
@@ -91,17 +83,22 @@
                                     
                                 </h:dataTable>
                             
-                           <h:panelGrid columns="1">
-                                <p:commandLink action="#{stuffControler.setWyswietl(true)}" update=":forma">
-                                    <h:graphicImage name="buttons/AdminEdycja.jpg" />
-                                </p:commandLink>
-                                <p:commandLink action="#{stuffControler.editAll()}" update=":forma">
-                                    <h:graphicImage name="buttons/AdminZapis.jpg" />
-                                </p:commandLink>
-                            </h:panelGrid>
                         </h:panelGrid>  
-                    
-                    
+                    <div style="display: block; position: absolute; bottom: 50px; left: 25%">
+                        
+                        <p:commandLink action="#{stuffControler.setWyswietl(true)}" update=":forma" style="margin-left: 10px; margin-right: 10px">
+                            <h:graphicImage name="buttons/AdminEdycja.jpg" />
+                        </p:commandLink>
+                        <p:commandLink action="#{stuffControler.editAll()}" update=":forma" style="margin-left: 10px; margin-right: 10px">
+                            <h:graphicImage name="buttons/AdminZapis.jpg" />
+                        </p:commandLink>
+                        <p:commandLink action="#{stuffControler.wszystkiePrzedmioty()}" update=":forma" style="margin-left: 10px; margin-right: 10px">
+                            <h:graphicImage name="buttons/AdminWyswietl.jpg" />
+                        </p:commandLink> 
+                        <p:commandLink action="#{stuffControler.addStuff()}" update=":forma" style="margin-left: 10px; margin-right: 10px">
+                            <h:graphicImage name="buttons/AdminDodaj.jpg" />
+                        </p:commandLink>
+                    </div>
                         
                         
                         

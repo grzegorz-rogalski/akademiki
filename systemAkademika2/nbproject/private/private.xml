@@ -3,14 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/H:/DANE_uczelnia/IT/programowanie/java/akademiki/systemAkademika2/web/resources/css/AdminCSS.css</file>
-            <file>file:/H:/DANE_uczelnia/IT/programowanie/java/akademiki/systemAkademika2/web/mieszkaniec/mieszkaniecDecorator.xhtml</file>
-            <file>file:/H:/DANE_uczelnia/IT/programowanie/java/akademiki/systemAkademika2/web/mieszkaniec/STARTmieszkaniec.xhtml</file>
-            <file>file:/H:/DANE_uczelnia/IT/programowanie/java/akademiki/systemAkademika2/web/administrator/opcje/adminDane.xhtml</file>
-            <file>file:/H:/DANE_uczelnia/IT/programowanie/java/akademiki/systemAkademika2/web/mieszkaniec/profilMieszkaniec.xhtml</file>
-            <file>file:/H:/DANE_uczelnia/IT/programowanie/java/akademiki/systemAkademika2/web/administrator/AdminDecorator.xhtml</file>
-            <file>file:/H:/DANE_uczelnia/IT/programowanie/java/akademiki/systemAkademika2/web/administrator/STARTadmin.xhtml</file>
-            <file>file:/H:/DANE_uczelnia/IT/programowanie/java/akademiki/systemAkademika2/web/resources/css/MieszkaniecCSS.css</file>
+            <file>file:/C:/Users/sylwester.osik/Documents/GitHub/akademiki/systemAkademika2/web/administrator/opcje/adminDodanieSprzetu.xhtml</file>
+            <file>file:/C:/Users/sylwester.osik/Documents/GitHub/akademiki/systemAkademika2/web/administrator/opcje/adminDane.xhtml</file>
+            <file>file:/C:/Users/sylwester.osik/Documents/GitHub/akademiki/systemAkademika2/web/mieszkaniec/mieszkaniecDecorator.xhtml</file>
+            <file>file:/C:/Users/sylwester.osik/Documents/GitHub/akademiki/systemAkademika2/web/mieszkaniec/profilMieszkaniec.xhtml</file>
+            <file>file:/C:/Users/sylwester.osik/Documents/GitHub/akademiki/systemAkademika2/web/administrator/opcje/adminDodaniePokoju.xhtml</file>
+            <file>file:/C:/Users/sylwester.osik/Documents/GitHub/akademiki/systemAkademika2/web/WEB-INF/faces-config.xml</file>
+            <file>file:/C:/Users/sylwester.osik/Documents/GitHub/akademiki/systemAkademika2/src/java/projekt/room/baza/RoomSes.java</file>
+            <file>file:/C:/Users/sylwester.osik/Documents/GitHub/akademiki/systemAkademika2/web/resources/css/AdminCSS.css</file>
         </group>
     </open-files>
 </project-private>

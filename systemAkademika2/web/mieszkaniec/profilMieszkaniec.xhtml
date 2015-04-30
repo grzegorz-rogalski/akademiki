@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <body>
 
@@ -14,6 +15,9 @@
                 <div align="center">
                     <h5>Podgląd danych profilowych:</h5>
                         <h:panelGrid columns="2" cellpadding="5">
+                            <f:facet name="header">                                    
+                                <h:graphicImage value="..//resources/pobraneObrazki/#{pearsonkontroler.osoba.zdjecie}" style="max-height: 200px; max-width: 200px"/>
+                            </f:facet>
                             <h:outputLabel value="Imie:" for="imie" />
                             <h:outputText id="imie" value="#{pearsonkontroler.osoba.imie}" title="Imie" />
                             <h:outputLabel value="Nazwisko:" for="nazwisko" />

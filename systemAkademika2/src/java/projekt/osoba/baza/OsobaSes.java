@@ -34,24 +34,9 @@ public class OsobaSes {
     
     public void createOsoba(BazaPearson osoba) 
     {
-        message= new messageKontroler();
-        List<BazaPearson> list = findLog(osoba.getLogin());
-        if(list.isEmpty())
-        {
-            message.rejestracja();
-            list=allPeople();
-            if(list.isEmpty()||list.size()==1)
-            {
-                osoba.setStatus("admin");
-            }
-            else
-            {
-                osoba.setStatus("brak");
-            }
-            manager.persist(osoba);
-        }
-        else
-            message.rejestracjaError();
+        
+        manager.persist(osoba);
+        
     }
     
     public List<BazaPearson> allPeople() {

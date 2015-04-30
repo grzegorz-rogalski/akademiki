@@ -29,6 +29,7 @@ public class BazaPearson implements Serializable {
     private String login;
     private String haslo;
     
+    private String zdjecie;
     private int IdPokoju;
     private String status;
     
@@ -102,6 +103,14 @@ public class BazaPearson implements Serializable {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getZdjecie() {
+        return zdjecie;
+    }
+
+    public void setZdjecie(String zdjecie) {
+        this.zdjecie = zdjecie;
     }
 
 }

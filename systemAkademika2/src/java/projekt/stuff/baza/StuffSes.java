@@ -31,17 +31,17 @@ public class StuffSes {
     
     public void createStuff(StuffDatabase przedmiot)
     {
-        message= new messageKontroler();
-        List<StuffDatabase> list = findLog(przedmiot.getId());
-        if(list.isEmpty())
-        {
-            message.yourMessage("Dodano", "element został dodany do bazy");
+       // message= new messageKontroler();
+        //List<StuffDatabase> list = findLog(przedmiot.getId());
+        //if(list.isEmpty())
+        //{
+        //    message.yourMessage("Dodano", "element został dodany do bazy");
             //list=allRooms();
 
             manager.persist(przedmiot);
-        }
-        else
-            message.yourMessage("Niepowodzenie", "nie udało się dodać elementu do bazy");
+       // }
+      //  else
+        //    message.yourMessage("Niepowodzenie", "nie udało się dodać elementu do bazy");
     }
     
     public List<StuffDatabase> allStuff() {

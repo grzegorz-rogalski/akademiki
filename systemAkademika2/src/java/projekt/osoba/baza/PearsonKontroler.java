@@ -210,6 +210,11 @@ public class PearsonKontroler implements Serializable{
         return "index";
     }
 
+    
+    
+    
+    ////////////////////////////////
+    
     public BazaPearson getOsoba() {
         return osoba;
     }

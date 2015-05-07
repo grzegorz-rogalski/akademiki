@@ -37,7 +37,7 @@ public class RoomControler implements Serializable{
     public RoomControler() {
         pokoj=new RoomDatabase();
         pokojTemp = new RoomDatabase();
-        wyswietl = false;
+        wyswietl = true;
     }
     
     public void addRoom()

@@ -20,7 +20,7 @@ import projekt.osoba.baza.OsobaSes;
  *
  * @author marekszymanski
  */
-@ManagedBean (name = "pearsonkontroler")
+@ManagedBean (name = "pearsonkontroleraaaa")
 @SessionScoped
 public class PearsonKontroler implements Serializable{
     @EJB
@@ -130,6 +130,11 @@ public class PearsonKontroler implements Serializable{
         return "index";
     }
 
+    
+    
+    
+    /////////////////////////
+    
     public BazaPearson getOsoba() {
         return osoba;
     }

@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>info</from-outcome>
+            <to-view-id>/strony pomocnicze/informacje.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>rejestracja</from-outcome>
+            <to-view-id>/strony pomocnicze/rejestracja.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>adminstrator</from-outcome>
+            <to-view-id>/Administrator/administratorStart.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>*</from-view-id>
+        <navigation-case>
+            <from-outcome>home</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>Administrator/*</from-view-id>
+        <navigation-case>
+            <from-outcome>administratorUsers</from-outcome>
+            <to-view-id>/Administrator/administratorUsers.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>administratorRoom</from-outcome>
+            <to-view-id>/Administrator/administratorRoom.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+</faces-config>

@@ -14,14 +14,22 @@
                 <div align="center">
                     <f:view>
 
-
                         <h:form id="form">
-                            <h:outputText value="#{personkontroler.fillListAll()}"/>
+                            <h:outputText value="#{kontroler.siteController.edit}#{personkontroler.fillListAll()}"/>
                             <h1><h:outputText value="Lista osób:"/></h1>
                             <h:panelGrid columns="2" cellpadding="5">
-                                <p:commandButton value="Wyświetl" action="#{personkontroler.fillListAll()}"/>
-                                <p:commandButton value="Edytuj" rendered="#{!kontroler.siteController.edit}" action="#{kontroler.siteController.changeEdit()}" update="form"/>
-                                <p:commandButton value="Zapisz" rendered="#{kontroler.siteController.edit}" action="#{kontroler.updateAllPeople()}" update="form"/>
+
+
+                                <p:commandButton value="Edytuj" 
+                                                 rendered="#{!kontroler.siteController.edit}" 
+                                                 action="#{kontroler.siteController.changeEdit()}" update="form"/>                          
+                                <p:commandButton value="Zapisz" 
+                                                 rendered="#{kontroler.siteController.edit}" 
+                                                 action="#{kontroler.updateAllPeople()}" update="form"/>
+                                <h:link value="dodaj" 
+                                        outcome="/Administrator/pop-up/newUser"/> 
+                                <!--<p:commandButton value="Wyświetl" 
+                                                 action="#{personkontroler.fillListAll()}"/>-->
                             </h:panelGrid>
                             <h:dataTable value="#{personkontroler.personList}" var="item">
                                 <h:column>
@@ -30,6 +38,7 @@
                                     </f:facet>
                                     <h:outputText value="#{item.id}"/>
                                 </h:column>
+
                                 <h:column rendered="#{!kontroler.siteController.edit}">
                                     <f:facet name="header">
                                         <h:outputText value="Name"/>
@@ -42,6 +51,7 @@
                                     </f:facet>
                                     <h:inputText value="#{item.name}"/>
                                 </h:column>
+
                                 <h:column rendered="#{!kontroler.siteController.edit}">
                                     <f:facet name="header">
                                         <h:outputText value="Surname"/>
@@ -54,24 +64,40 @@
                                     </f:facet>
                                     <h:inputText value="#{item.surname}"/>
                                 </h:column>
-                                <h:column>
+
+                                <h:column rendered="#{!kontroler.siteController.edit}">
                                     <f:facet name="header">
                                         <h:outputText value="Login"/>
                                     </f:facet>
                                     <h:outputText value="#{item.login}"/>
                                 </h:column>
-                                <h:column>
+                                <h:column rendered="#{kontroler.siteController.edit}">
+                                    <f:facet name="header">
+                                        <h:outputText value="Login"/>
+                                    </f:facet>
+                                    <h:inputText value="#{item.login}"/>
+                                </h:column>
+
+                                <h:column rendered="#{!kontroler.siteController.edit}">
                                     <f:facet name="header">
                                         <h:outputText value="PhoneNumber"/>
                                     </f:facet>
                                     <h:outputText value="#{item.phoneNumber}"/>
                                 </h:column>
+                                <h:column rendered="#{kontroler.siteController.edit}">
+                                    <f:facet name="header">
+                                        <h:outputText value="PhoneNumber"/>
+                                    </f:facet>
+                                    <h:inputText value="#{item.phoneNumber}"/>
+                                </h:column>
+
                                 <h:column>
                                     <f:facet name="header">
                                         <h:outputText value="Password"/>
                                     </f:facet>
                                     <h:outputText value="#{item.password}"/>
                                 </h:column>
+
                                 <h:column>
                                     <f:facet name="header">
                                         <h:outputText value="BirthDate"/>
@@ -80,12 +106,14 @@
                                         <f:convertDateTime pattern="MM/dd/yyyy" />
                                     </h:outputText>
                                 </h:column>
+
                                 <h:column>
                                     <f:facet name="header">
                                         <h:outputText value="StudentCardNumber"/>
                                     </f:facet>
                                     <h:outputText value="#{item.studentCardNumber}"/>
                                 </h:column>
+
                                 <h:column rendered="#{!kontroler.siteController.edit}">
                                     <f:facet name="header">
                                         <h:outputText value="Status"/>
@@ -96,8 +124,9 @@
                                     <f:facet name="header">
                                         <h:outputText value="Status"/>
                                     </f:facet>
-                                    <h:outputText value="Lista statusów"/>
+                                    <h:inputText value="#{item.status}"/>
                                 </h:column>
+
                                 <h:column rendered="#{!kontroler.siteController.edit}">
                                     <f:facet name="header">
                                         <h:outputText value="Room"/>
@@ -108,8 +137,9 @@
                                     <f:facet name="header">
                                         <h:outputText value="Room"/>
                                     </f:facet>
-                                    <h:outputText value="Lista pokojów"/>
+                                    <h:outputText value="#{item.room}"/>
                                 </h:column>
+
                                 <h:column>
                                     <f:facet name="header">
                                         <h:outputText value="Obrazek"/>
@@ -123,6 +153,7 @@
                                     <h:outputText value="#{item.mail}"/>
                                 </h:column>
                             </h:dataTable>
+
                         </h:form>
                     </f:view>
 

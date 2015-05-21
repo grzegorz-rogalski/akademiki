@@ -33,6 +33,21 @@ public class PersonKontroler implements Serializable{
         personList = new ArrayList<>();
     }
     
+    public String createNew()
+    {
+        if(manager.findByLogin(person.getLogin()).isEmpty())
+        {
+            manager.createOsoba(person);
+            person = new Person();
+            return "/Administrator/administratorUsers";
+        }   
+        else
+        {
+            System.out.println("Login zajęty");
+            return "/Administrator/pop-up/newUser";
+        }
+    }
+    
     public boolean createNew(int rooms)
     {
         if(manager.allPeople().isEmpty() || manager.allPeople().size() == 1)
@@ -108,6 +123,8 @@ public class PersonKontroler implements Serializable{
         }
     }
 
+
+    
     public Person getPerson() {
         return person;
     }

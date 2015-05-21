@@ -17,7 +17,16 @@
             <from-outcome>adminstrator</from-outcome>
             <to-view-id>/Administrator/administratorStart.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>inhabitant</from-outcome>
+            <to-view-id>/Inhabitant/inhabitantStart.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>porter</from-outcome>
+            <to-view-id>/Porter/porterStart.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
+    
     <navigation-rule>
         <from-view-id>*</from-view-id>
         <navigation-case>
@@ -25,6 +34,7 @@
             <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    
     <navigation-rule>
         <from-view-id>Administrator/*</from-view-id>
         <navigation-case>
@@ -36,4 +46,21 @@
             <to-view-id>/Administrator/administratorRoom.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>Inhabitant/*</from-view-id>
+        <navigation-case>
+            <from-outcome>port</from-outcome>
+            <to-view-id>/Inhabitant/porterSearch.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>Porter/*</from-view-id>
+        <navigation-case>
+            <from-outcome>porterSearch</from-outcome>
+            <to-view-id>/Porter/porterSearch.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
 </faces-config>

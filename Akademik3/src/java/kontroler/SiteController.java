@@ -24,10 +24,12 @@ public class SiteController {
             System.out.println("Administrator");
             return "adminstrator";
         }   
-        if(kto.equals("Mieszkaniec"))
-            return "home";
+        if(kto.equals("Mieszkaniec")){
+            System.out.println("mieszkaniec>przejscie   "+kto);
+            return "inhabitant";
+        }
         if(kto.equals("Portier"))
-            return "portier";
+            return "porter";
         return "home";
     }
     

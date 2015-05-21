@@ -15,13 +15,17 @@
                         <h1><h:outputText value="Dodaj nowy sprzęt"/></h1>
                         <h:panelGrid columns="2">
                             <h:outputLabel value="Nazwa:" for="name" />
-                            <h:inputText id="name" value="#{furnishingsKontroler.furnishings.name}" title="Name" />
+                            <h:inputText id="name" value="#{furnishingsKontroler.furnishings.name}" 
+                                         title="Name" />
                             <h:outputLabel value="Standardowa ilość:" for="amount" />
-                            <h:inputText id="amount" value="#{furnishingsKontroler.furnishings.amount}" title="Amount" />
+                            <h:inputText id="amount" value="#{furnishingsKontroler.furnishings.amount}" 
+                                         title="Amount" />
                             <h:outputLabel value="Stan:" for="state" />
-                            <h:inputText id="state" value="#{furnishingsKontroler.furnishings.state}" title="State" />
+                            <h:inputText id="state" value="#{furnishingsKontroler.furnishings.state}" 
+                                         title="State" />
                             <f:facet name="footer">
-                                <p:commandButton value="Zapisz" action="#{furnishingsKontroler.newFurnishings()}" update="form2" style="width: 100%"/>
+                                <p:commandButton value="Zapisz" action="#{furnishingsKontroler.newFurnishings()}" 
+                                                 update="form2" style="width: 100%"/>
                             </f:facet>
                         </h:panelGrid>
                     </h:form>

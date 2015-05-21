@@ -97,6 +97,16 @@ public class PersonKontroler implements Serializable{
         }
     }
     
+    public void findBySurname(String param)
+    {       System.out.println(param);
+    
+    }
+    
+    public void findByStudentCardNumber(String param)
+    {       
+       
+    }
+    
     public void edit()
     {
         manager.update(person);
@@ -121,8 +131,23 @@ public class PersonKontroler implements Serializable{
                     personList.add(tempList.get(i));
             }
         }
+    }      
+  
+      public void fillListSurname()
+    {
+        List <Person> tempList = manager.findBySurName(person.getSurname());
+        if(tempList.isEmpty())
+            System.out.println("Nie ma nikogo o takich danych");
+        else
+        {
+           /* personList = new ArrayList<>();
+            for(int i = 0; i<tempList.size();i++)
+            {
+                if(tempList.get(i).getName().equals(person.getName()))
+                    personList.add(tempList.get(i));
+            }*/
+        }
     }
-
 
     
     public Person getPerson() {

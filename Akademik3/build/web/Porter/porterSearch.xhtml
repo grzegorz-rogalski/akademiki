@@ -2,16 +2,32 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
 
     <body>
 
         <ui:composition template="./porterDecorator.xhtml">
 
             <ui:define name="content">
-                <p:panel>
-                    
-                </p:panel>
+                <h:form>
+                    <p:panel>
+                        <h:outputText value="WYSZUKAJ po" style="font-size: 18"/>
+                        <h:panelGrid columns="3">
+                            <h:outputText value="nazwisku"/>
+                            <h:inputText id="surename" 
+                                         />
+                            <p:commandButton value="wyszukaj" 
+                                             />
+                            
+                            <h:outputText value="numerze karty"/>
+                            <h:inputText id="cardnumber"/>
+                            <p:commandButton value="wyszukaj" 
+                                            />
+                        </h:panelGrid>
+                        
+                    </p:panel>
+                </h:form>
             </ui:define>
 
         </ui:composition>

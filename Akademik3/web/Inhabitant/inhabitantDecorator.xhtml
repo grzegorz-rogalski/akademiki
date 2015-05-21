@@ -30,21 +30,25 @@
         <div>
             <div id="left">
                 <ui:insert name="left">
-                    <div align="center">
+                    <div align="center" style="min-height: 200px">
                         <h:form>
                             <p:panel>
                                 <h:panelGrid columns="2" cellpadding="5">
-                                    <li><p:commandLink value="Start"/></li>
-                                    <li><p:commandLink value="Pokój" /></li>
-                                    <li><p:commandLink value="Wydarzenia"/></li>
-                                    <li><p:commandLink value="Wyloguj" action="#{kontroler.logOut()}"/></li>
+                                    <li><p:commandLink value="Start" 
+                                                       action="inhabitantStart"/></li>
+                                    <li><p:commandLink value="Pokój" 
+                                                       action="inhabitantRoom"/></li>
+                                    <li><p:commandLink value="Wydarzenia" 
+                                                       action="inhabitantEvent"/></li>
+                                    <li><p:commandLink value="Wyloguj" 
+                                                       action="#{kontroler.logOut()}"/></li>
                                 </h:panelGrid>
                             </p:panel>
                         </h:form>
                     </div>
                 </ui:insert>
             </div>
-            <div id="content" class="left_content">
+            <div id="content" class="left_content" style="min-height: 200px">
                 <ui:insert name="content">Content</ui:insert>
             </div>
         </div>

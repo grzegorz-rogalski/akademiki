@@ -24,27 +24,35 @@
                     <h:outputText value="#{furnishingsKontroler.fillAllFurnishingsStringList()}"/>
                     <h:panelGrid columns="2">
                         <h:outputLabel value="Numer pokoju:" for="number" />
-                        <h:inputText id="number" value="#{roomkontroler.room.number}" title="Number" />
+                        <h:inputText id="number" value="#{roomkontroler.room.number}" 
+                                     title="Number" />
                         <h:outputLabel value="Ilość łóżek" for="numberOfBeds" />
-                        <h:inputText id="numberOfBeds" value="#{roomkontroler.room.numberOfBeds}" title="NumberOfBeds" />
+                        <h:inputText id="numberOfBeds" value="#{roomkontroler.room.numberOfBeds}" 
+                                     title="NumberOfBeds" />
                         <h:outputText value="Dodaj wyposarzenie:"/>
                         
                         <p:fieldset id="availableFurnisgingsField" legend="AvailableCars">
-                            <p:dataGrid id="availableCars" var="car" value="#{furnishingsKontroler.furnishingsList}" columns="3">
+                            <p:dataGrid id="availableCars" var="car" value="#{furnishingsKontroler.furnishingsList}" 
+                                        columns="3">
                                 <p:panel id="pnl" header="#{car.name}" style="text-align:center">
                                     <h:panelGrid columns="1" style="width:100%">
                                         <h:outputText value="Ilość: #{car.amount}"/>
                                     </h:panelGrid>
                                 </p:panel>
 
-                                <p:draggable for="pnl" revert="true" handle=".ui-panel-titlebar" stack=".ui-panel"/>
+                                <p:draggable for="pnl" revert="true" handle=".ui-panel-titlebar" 
+                                             stack=".ui-panel"/>
                             </p:dataGrid>
                         </p:fieldset>
                         
                         <p:fieldset id="selectedCars" legend="Selected Cars" style="margin-top:20px">
                             <p:outputPanel id="dropArea">
-                                <h:outputText value="!!!Drop here!!!" rendered="#{empty roomkontroler.room.furnishings}" style="font-size:24px;" />
-                                <p:dataTable id="selectedCarsTable" var="car" value="#{roomkontroler.room.furnishings}" rendered="#{not empty roomkontroler.room.furnishings}">
+                                <h:outputText value="!!!Drop here!!!" 
+                                              rendered="#{empty roomkontroler.room.furnishings}" 
+                                              style="font-size:24px;" />
+                                <p:dataTable id="selectedCarsTable" var="car" 
+                                             value="#{roomkontroler.room.furnishings}" 
+                                             rendered="#{not empty roomkontroler.room.furnishings}">
                                     <p:column headerText="Id">
                                         <h:outputText value="#{car.id}" />
                                     </p:column>
@@ -57,12 +65,16 @@
                                 </p:dataTable>
                             </p:outputPanel>
                         </p:fieldset>
-                        <p:droppable for="selectedCars" tolerance="touch" activeStyleClass="ui-state-highlight" datasource="availableCars" onDrop="handleDrop">
-                            <p:ajax listener="#{kontroler.onFurnishingsDrop}" update="selectedCars" />
+                        <p:droppable for="selectedCars" tolerance="touch" 
+                                     activeStyleClass="ui-state-highlight" 
+                                     datasource="availableCars" onDrop="handleDrop">
+                            <p:ajax listener="#{kontroler.onFurnishingsDrop}" 
+                                    update="selectedCars" />
                         </p:droppable>
                         
                         <f:facet name="footer">
-                            <p:commandButton value="Zapisz" action="#{kontroler.addRoom()}" style="width: 100%"/>
+                            <p:commandButton value="Zapisz" action="#{kontroler.addRoom()}" 
+                                             style="width: 100%"/>
                         </f:facet>
                     </h:panelGrid>
                 </h:form>

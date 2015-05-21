@@ -45,14 +45,31 @@
             <from-outcome>administratorRoom</from-outcome>
             <to-view-id>/Administrator/administratorRoom.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>administratorEvent</from-outcome>
+            <to-view-id>/Administrator/administratorEvent.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>adminstratorStart</from-outcome>
+            <to-view-id>/Administrator/administratorStart.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     
-    <navigation-rule>
+      <navigation-rule>
         <from-view-id>Inhabitant/*</from-view-id>
         <navigation-case>
-            <from-outcome>port</from-outcome>
-            <to-view-id>/Inhabitant/porterSearch.xhtml</to-view-id>
+            <from-outcome>inhabitantEvent</from-outcome>
+            <to-view-id>/Inhabitant/inhabitantEvent.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>inhabitantRoom</from-outcome>
+            <to-view-id>/Inhabitant/inhabitantRoom.xhtml</to-view-id>
+        <navigation-case>
+            <from-outcome>inhabitantStart</from-outcome>
+            <to-view-id>/Inhabitant/inhabitantStart.xhtml</to-view-id>
+        </navigation-case>
+        </navigation-case>
+        
     </navigation-rule>
     
     <navigation-rule>
@@ -60,6 +77,10 @@
         <navigation-case>
             <from-outcome>porterSearch</from-outcome>
             <to-view-id>/Porter/porterSearch.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>porterStart</from-outcome>
+            <to-view-id>/Porter/porterStart.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     

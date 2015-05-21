@@ -34,18 +34,27 @@
                                     <h1>Logowanie</h1>
                                 </f:facet>
                                 <h:outputLabel value="Login:" for="login" />
-                                <h:inputText id="login" value="#{personkontroler.person.login}" title="Login" />
+                                <h:inputText id="login" 
+                                             value="#{personkontroler.person.login}" 
+                                             title="Login" />
                                 <h:outputLabel value="Password:" for="password" />
-                                <h:inputSecret id="password" value="#{personkontroler.person.password}" title="Password" />
+                                <h:inputSecret id="password" 
+                                               value="#{personkontroler.person.password}" 
+                                               title="Password" />
                                 <f:facet name="footer">
-                                    <p:commandButton value="Zaloguj" action="#{kontroler.logIn()}" style="width: 100%"/>
+                                    <p:commandButton value="Zaloguj" 
+                                                     action="#{kontroler.logIn()}" 
+                                                     style="width: 100%"/>
                                 </f:facet>
                             </h:panelGrid>
                             
                             <h:panelGrid columns="1" style="margin-top: 1%">
-                                <h:outputText value="Jeśli nie to to zarejestruj się już dziś:" style="font-size: x-large; font-weight: bold"/>
-                                <p:commandButton value="Przejdź do rejestracji" action="rejestracja" style="width: 100%"/>
-                                <p:commandLink value="Informacje" action="info" style="alignment-adjust: central"/>
+                                <h:outputText value="Jeśli nie to to zarejestruj się już dziś:" 
+                                              style="font-size: x-large; font-weight: bold"/>
+                                <p:commandButton value="Przejdź do rejestracji" action="rejestracja" 
+                                                 style="width: 100%"/>
+                                <p:commandLink value="Informacje" action="info" 
+                                               style="alignment-adjust: central"/>
                             </h:panelGrid>
                         </p:panel>
                     </h:form>

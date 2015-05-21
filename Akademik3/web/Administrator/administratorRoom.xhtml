@@ -13,9 +13,10 @@
             <ui:define name="content">
                 <div align="center">
                     <h:form id="form">
-                        <h:outputText value="#{roomkontroler.fillList()}"/>
-                        <h:outputText value="#{furnishingsKontroler.fillAllFurnishingsList()}"/>
-                        <p:panelGrid columns="2" style="column-width: max-content">
+                        <p:panel>
+                            <h:outputText value="#{roomkontroler.fillList()}"/>
+                            <h:outputText value="#{furnishingsKontroler.fillAllFurnishingsList()}"/>
+                            <p:panelGrid columns="2" style="column-width: max-content">
                                 <f:facet name="header">
                                     <h2><h:outputText value="Statystyki:"/></h2>
                                 </f:facet>
@@ -39,7 +40,8 @@
                                                            itemLabel="#{c.number}" itemValue="#{c.id}" />
                                         </h:selectOneMenu>
                                         <p:commandButton value="wybierz" update="form"/>
-                                        <p:commandButton update="form" value="szczegóły" onclick="PF('roomDetails').show();"/>
+                                        <p:commandButton update="form" value="szczegóły" 
+                                                         onclick="PF('roomDetails').show();"/>
                                     </h:panelGrid>
                                     <p:commandButton value="dodaj" onclick="PF('newRoom').show();" style="width: 100%"/>
                                 </h:panelGrid>
@@ -52,18 +54,27 @@
                                         </h:selectOneMenu>
                                         <p:commandButton value="szczegóły"/>
                                     </h:panelGrid>
-                                    <p:commandButton value="dodaj" onclick="PF('newFurnishings').show();" style="width: 100%"/>
+                                    <p:commandButton value="dodaj" 
+                                                     onclick="PF('newFurnishings').show();" 
+                                                     style="width: 100%"/>
                                 </h:panelGrid>      
                             </p:panelGrid>
-                            <p:dialog widgetVar="newRoom" header="Dodaj pokój" resizable="false" modal="true" showEffect="fade" hideEffect="fade">
+                            <p:dialog widgetVar="newRoom" header="Dodaj pokój" 
+                                      resizable="false" modal="true" showEffect="fade" 
+                                      hideEffect="fade">
                                 <ui:include src="pop-up/newRoom.xhtml"/>
                             </p:dialog>
-                            <p:dialog widgetVar="newFurnishings" header="Dodaj sprzęt" resizable="false" modal="true" showEffect="fade" hideEffect="fade">
+                            <p:dialog widgetVar="newFurnishings" header="Dodaj sprzęt" 
+                                      resizable="false" modal="true" showEffect="fade" 
+                                      hideEffect="fade">
                                 <ui:include src="pop-up/newFurnishings.xhtml"/>
                             </p:dialog>
-                        <p:dialog widgetVar="roomDetails" header="Dane pokoju" resizable="false" modal="true" showEffect="fade" hideEffect="fade">
-                            <ui:include src="pop-up/viewRoom.xhtml"/>
+                            <p:dialog widgetVar="roomDetails" header="Dane pokoju" 
+                                      resizable="false" modal="true" showEffect="fade" 
+                                      hideEffect="fade">
+                                <ui:include src="pop-up/viewRoom.xhtml"/>
                             </p:dialog>
+                        </p:panel>
                     </h:form>
                 </div>
             </ui:define>

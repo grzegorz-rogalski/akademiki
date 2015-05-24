@@ -22,6 +22,7 @@ import logika.entity.Person;
 @ManagedBean (name = "personkontroler")
 @SessionScoped
 public class PersonKontroler implements Serializable{
+    public static Person currentlyLogged;
     private Person person;
     private List <Person> personList;
     @EJB
@@ -89,6 +90,7 @@ public class PersonKontroler implements Serializable{
             Person temp = manager.findByLogin(person.getLogin()).get(0);
             if(person.getPassword().equals(temp.getPassword()))
             {
+                currentlyLogged=temp;
                 person = temp;
                 return true;
             } 
@@ -97,14 +99,14 @@ public class PersonKontroler implements Serializable{
         }
     }
     
-    public void findBySurname(String param)
-    {       System.out.println(param);
-    
+    public void findBySurname()
+    {       System.out.println(person.getSurname());
+        personList = manager.findBySurName(person.getSurname());   
     }
     
-    public void findByStudentCardNumber(String param)
+    public void findByStudentCardNumber()
     {       
-       
+      personList = manager.findByStudentCardNumber(person.getStudentCardNumber()); 
     }
     
     public void edit()

@@ -14,6 +14,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import logika.DBkontroler.EventKontroler;
 import logika.DBkontroler.FurnishingsKontroler;
 import logika.DBkontroler.PersonKontroler;
 import logika.DBkontroler.RoomKontroler;
@@ -37,6 +38,8 @@ public class Kontroler implements Serializable{
     @ManagedProperty(value="#{furnishingskontroler}")
     FurnishingsKontroler furnishingsKontroler;
     
+    @ManagedProperty(value="#{eventkontroler}")
+    EventKontroler eventKontroler;
     
     SiteController siteController = new SiteController();
     
@@ -71,6 +74,15 @@ public class Kontroler implements Serializable{
         for(int i = 0; i < personKontroler.getPersonList().size(); i++)
         {
             personKontroler.manager.update(personKontroler.getPersonList().get(i));
+        }
+        siteController.changeEdit();
+    }
+    
+        public void updateAllEvents()
+    {
+        for(int i = 0; i < eventKontroler.getEventList().size(); i++)
+        {
+            eventKontroler.manager.update(eventKontroler.getEventList().get(i));
         }
         siteController.changeEdit();
     }
@@ -115,6 +127,16 @@ public class Kontroler implements Serializable{
     public void setFurnishingsKontroler(FurnishingsKontroler furnishingsKontroler) {
         this.furnishingsKontroler = furnishingsKontroler;
     }
+
+    public EventKontroler getEventKontroler() {
+        return eventKontroler;
+    }
+
+    public void setEventKontroler(EventKontroler eventKontroler) {
+        this.eventKontroler = eventKontroler;
+    }
+    
+    
     
 }
 

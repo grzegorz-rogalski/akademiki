@@ -13,45 +13,46 @@ import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import logika.entity.CrankyEvent;
 import logika.entity.Event;
 
 @Stateless
-public class EventBean {
+public class CrankyEventBean {
 
     @PersistenceContext
     private EntityManager manager;
-    private Event temp = new Event();
+    private CrankyEvent temp = new CrankyEvent();
     //messageKontroler message;
     
-    public void createEvent(Event event) 
+    public void createEvent(CrankyEvent event) 
     {
         manager.persist(event);
     }
     
-    public List<Event> allEvents() {
+    public List<CrankyEvent> allEvents() {
         CriteriaQuery cq = manager.getCriteriaBuilder().createQuery();
         cq.select(cq.from(Event.class));
         return manager.createQuery(cq).getResultList();
     }
     
-    public Event findByID(int id)
+    public CrankyEvent findByID(int id)
     {
-        return manager.find(Event.class, id);
+        return manager.find(CrankyEvent.class, id);
     }
     
-    public List<Event> findBy(boolean status)
+    public List<CrankyEvent> findBy(boolean status)
     {
         CriteriaBuilder cb = manager.getCriteriaBuilder();
         CriteriaQuery cq = cb.createQuery();
-        Root e = cq.from(Event.class);
+        Root e = cq.from(CrankyEvent.class);
         cq.multiselect(e);
-        cq.where(cb.equal(e.get("isAccepted"), status));
+        cq.where(cb.equal(e.get("isFinished"), status));
         Query query = manager.createQuery(cq);
-        List<Event> result = query.getResultList();
+        List<CrankyEvent> result = query.getResultList();
         return result;
     }
     
-    public void update(Event newEvent)
+    public void update(CrankyEvent newEvent)
     {
         manager.merge(newEvent);
     }

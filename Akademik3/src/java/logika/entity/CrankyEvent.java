@@ -6,41 +6,29 @@
 package logika.entity;
 
 import java.io.Serializable;
-import java.sql.Time;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 
 
 @Entity
-public class Event implements Serializable {
+public class CrankyEvent implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String name;
+    private String brokenThingName;
     private String description;
     private String createdBy;
-    private boolean isAccepted;
+    private boolean isFinished;
     @Temporal(javax.persistence.TemporalType.DATE)
-    private Date startDate;
-    @Temporal(javax.persistence.TemporalType.DATE)
-    private Date endDate;
-    @Temporal(javax.persistence.TemporalType.TIME)
-    private Date startTime;
-    @Temporal(javax.persistence.TemporalType.TIME)
-    private Date endTime;
+    private Date Date;
 
-    public Event() {
-        startDate = new Date();
-        endDate = new Date();  
-        startTime = new Time(0, 0, 0);
-        endTime = new Time(0, 0, 0);
+    public CrankyEvent() {
+        Date = new Date();
     }
 
     public int getId() {
@@ -49,14 +37,6 @@ public class Event implements Serializable {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getDescription() {
@@ -75,45 +55,31 @@ public class Event implements Serializable {
         this.createdBy = createdBy;
     }
 
-    public boolean isIsAccepted() {
-        return isAccepted;
+    public String getBrokenThingName() {
+        return brokenThingName;
     }
 
-    public void setIsAccepted(boolean isAccepted) {
-        this.isAccepted = isAccepted;
+    public void setBrokenThingName(String brokenThingName) {
+        this.brokenThingName = brokenThingName;
     }
 
-    public Date getStartDate() {
-        return startDate;
+    public Date getDate() {
+        return Date;
     }
 
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
+    public void setDate(Date Date) {
+        this.Date = Date;
     }
 
-    public Date getEndDate() {
-        return endDate;
+    public boolean isIsFinished() {
+        return isFinished;
     }
 
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
+    public void setIsFinished(boolean isFinished) {
+        this.isFinished = isFinished;
     }
 
-    public Date getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(Date startTime) {
-        this.startTime = startTime;
-    }
-
-    public Date getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
-    }
+   
 
     
     
@@ -127,10 +93,10 @@ public class Event implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Event)) {
+        if (!(object instanceof CrankyEvent)) {
             return false;
         }
-        Event other = (Event) object;
+        CrankyEvent other = (CrankyEvent) object;
         if (this.id != other.id) {
             return false;
         }

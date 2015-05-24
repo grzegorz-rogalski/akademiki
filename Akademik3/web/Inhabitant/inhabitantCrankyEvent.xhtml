@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./inhabitantDecorator.xhtml">
+
+            <ui:define name="content">
+                <p:panel>
+                    <h:form>
+                        <h1><h:outputText value="Wypełnij dane zgłoszenia uszkodzenia:"/></h1>
+                        <h:panelGrid columns="2">
+                            <h:outputLabel value="Co sie zepsuło" for="name" />
+                            <h:inputText id="name" value="#{crankyeventkontroler.event.brokenThingName}" 
+                                         title="Name" />
+                            <h:outputLabel value="Opis" for="description" />
+                            <h:inputTextarea id="description" value="#{crankyeventkontroler.event.description}" 
+                                         title="description" />
+                            <f:facet name="footer">
+                                <p:commandButton value="Zapisz" action="#{crankyeventkontroler.createNewByUser()}"/>
+                            </f:facet>
+                            
+                        </h:panelGrid>
+
+                    </h:form>
+                    <h:outputText value="*po udanym zgłoszeniu nastąpi przeniesienie do strony głównej"/>
+                </p:panel>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

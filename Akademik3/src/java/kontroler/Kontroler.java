@@ -14,6 +14,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
+import logika.DBkontroler.CrankyEventKontroler;
 import logika.DBkontroler.EventKontroler;
 import logika.DBkontroler.FurnishingsKontroler;
 import logika.DBkontroler.PersonKontroler;
@@ -24,7 +25,7 @@ import org.primefaces.event.DragDropEvent;
 
 /**
  *
- * @author marekszymanski
+ * @author grzeorz
  */
 @ManagedBean
 @SessionScoped
@@ -40,6 +41,9 @@ public class Kontroler implements Serializable{
     
     @ManagedProperty(value="#{eventkontroler}")
     EventKontroler eventKontroler;
+    
+    @ManagedProperty(value="#{crankyeventkontroler}")
+    CrankyEventKontroler crankyEventKontroler;
     
     SiteController siteController = new SiteController();
     
@@ -78,7 +82,7 @@ public class Kontroler implements Serializable{
         siteController.changeEdit();
     }
     
-        public void updateAllEvents()
+    public void updateAllEvents()
     {
         for(int i = 0; i < eventKontroler.getEventList().size(); i++)
         {
@@ -87,6 +91,15 @@ public class Kontroler implements Serializable{
         siteController.changeEdit();
     }
     
+        public void updateAllCrankyEvents()
+    {
+        for(int i = 0; i < crankyEventKontroler.getEventList().size(); i++)
+        {
+            crankyEventKontroler.manager.update(crankyEventKontroler.getEventList().get(i));
+        }
+        siteController.changeEdit();
+    }
+        
     public void onFurnishingsDrop(DragDropEvent ddEvent) {
         Furnishings temp = ((Furnishings) ddEvent.getData());
   
@@ -134,6 +147,14 @@ public class Kontroler implements Serializable{
 
     public void setEventKontroler(EventKontroler eventKontroler) {
         this.eventKontroler = eventKontroler;
+    }
+
+    public CrankyEventKontroler getCrankyEventKontroler() {
+        return crankyEventKontroler;
+    }
+
+    public void setCrankyEventKontroler(CrankyEventKontroler crankyEventKontroler) {
+        this.crankyEventKontroler = crankyEventKontroler;
     }
     
     

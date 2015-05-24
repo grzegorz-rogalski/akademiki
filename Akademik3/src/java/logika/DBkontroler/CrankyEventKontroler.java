@@ -7,44 +7,41 @@ package logika.DBkontroler;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import logika.bean.EventBean;
-import logika.entity.Event;
+import logika.bean.CrankyEventBean;
+import logika.entity.CrankyEvent;
 
 
 
-@ManagedBean(name = "eventkontroler")
+@ManagedBean(name = "crankyeventkontroler")
 @SessionScoped
-public class EventKontroler implements Serializable {
+public class CrankyEventKontroler implements Serializable {
 
-    private Event event;
-    private List<Event> eventList;
+    private CrankyEvent event;
+    private List<CrankyEvent> eventList;
     @EJB
-    public EventBean manager;
+    public CrankyEventBean manager;
 
-    public EventKontroler() {
-        event = new Event();
+    public CrankyEventKontroler() {
+        event = new CrankyEvent();
         eventList = new ArrayList<>();
     }
-
-    public String createNew() {
-        event.setCreatedBy(PersonKontroler.currentlyLogged.getName()+"."
-                +PersonKontroler.currentlyLogged.getSurname());
-        manager.createEvent(event);
-        return "administratorEvent";
-    }
     
-        public String createNewByUser() {
+    public String createNewByUser() {
         event.setCreatedBy(PersonKontroler.currentlyLogged.getName()+"."
-                +PersonKontroler.currentlyLogged.getSurname());
-        event.setIsAccepted(false);
+                +PersonKontroler.currentlyLogged.getSurname()+"."+
+                PersonKontroler.currentlyLogged.getStudentCardNumber());
+        event.setDate(new Date());
+        event.setIsFinished(false);
         manager.createEvent(event);
-        return "inhabitantEvent";
+        return "inhabitantStart";
     }
 
+        
     public void findAllAccepted()
     {
         eventList=manager.findBy(true);
@@ -54,7 +51,7 @@ public class EventKontroler implements Serializable {
     {
         eventList=manager.findBy(false);
     }
-        
+    
     public void edit() {
         manager.update(event);
     }
@@ -63,19 +60,19 @@ public class EventKontroler implements Serializable {
         eventList = manager.allEvents();
     }
 
-    public Event getEvent() {
+    public CrankyEvent getEvent() {
         return event;
     }
 
-    public void setEvent(Event event) {
+    public void setEvent(CrankyEvent event) {
         this.event = event;
     }
 
-    public List<Event> getEventList() {
+    public List<CrankyEvent> getEventList() {
         return eventList;
     }
 
-    public void setEventList(List<Event> eventList) {
+    public void setEventList(List<CrankyEvent> eventList) {
         this.eventList = eventList;
     }
 

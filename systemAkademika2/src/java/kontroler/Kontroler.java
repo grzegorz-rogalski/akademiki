@@ -17,6 +17,7 @@ import logika.DBkontroler.EventKontroler;
 import logika.DBkontroler.FurnishingsKontroler;
 import logika.DBkontroler.FurnishingsNameKontroler;
 import logika.DBkontroler.PersonKontroler;
+import logika.DBkontroler.RoomChangeKontroler;
 import logika.DBkontroler.RoomKontroler;
 import logika.entity.Furnishings;
 import logika.entity.Person;
@@ -47,6 +48,9 @@ public class Kontroler implements Serializable{
     
     @ManagedProperty(value="#{furnishingsnamekontroler}")
     FurnishingsNameKontroler furnishingsNameKontroler;
+    
+    @ManagedProperty(value="#{roomchangekontroler}")
+    RoomChangeKontroler roomChangeKontroler;
     
     SiteController siteController = new SiteController();
     
@@ -222,6 +226,15 @@ public class Kontroler implements Serializable{
     public void setFurnishingsNameKontroler(FurnishingsNameKontroler furnishingsNameKontroler) {
         this.furnishingsNameKontroler = furnishingsNameKontroler;
     }
+
+    public RoomChangeKontroler getRoomChangeKontroler() {
+        return roomChangeKontroler;
+    }
+
+    public void setRoomChangeKontroler(RoomChangeKontroler roomChangeKontroler) {
+        this.roomChangeKontroler = roomChangeKontroler;
+    }
+    
     
     
     

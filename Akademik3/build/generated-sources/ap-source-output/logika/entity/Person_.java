@@ -6,7 +6,7 @@ import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 import logika.entity.Room;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2015-05-17T14:39:42")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2015-05-26T10:32:18")
 @StaticMetamodel(Person.class)
 public class Person_ { 
 

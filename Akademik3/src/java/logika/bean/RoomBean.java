@@ -34,8 +34,11 @@ public class RoomBean {
     }
     
     public List<Room> allRooms() {
+        System.out.println("######### TU DZIAŁA 1");
+        
         CriteriaQuery cq = manager.getCriteriaBuilder().createQuery();
         cq.select(cq.from(Room.class));
+        System.out.println("######### TU DZIAŁA 2");
         return manager.createQuery(cq).getResultList();
     }
     

@@ -23,6 +23,7 @@ import logika.entity.Furnishings;
 import logika.entity.Person;
 import org.primefaces.event.DragDropEvent;
 
+
 /**
  *
  * @author grzeorz

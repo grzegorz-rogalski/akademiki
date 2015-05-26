@@ -4,49 +4,96 @@
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
     <navigation-rule>
-        <from-view-id>*</from-view-id>
+        <from-view-id>/index.xhtml</from-view-id>
         <navigation-case>
-            <from-outcome>profilMieszkaniec</from-outcome>
-            <to-view-id>/mieszkaniec/profilMieszkaniec.xhtml</to-view-id>
+            <from-outcome>info</from-outcome>
+            <to-view-id>/strony pomocnicze/informacje.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>rejestracja</from-outcome>
+            <to-view-id>/strony pomocnicze/rejestracja.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>adminstrator</from-outcome>
+            <to-view-id>/Administrator/administratorStart.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>inhabitant</from-outcome>
+            <to-view-id>/Inhabitant/inhabitantStart.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>porter</from-outcome>
+            <to-view-id>/Porter/porterStart.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>*</from-view-id>
         <navigation-case>
             <from-outcome>home</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    
     <navigation-rule>
-        <from-view-id>/index.xhtml</from-view-id>
+        <from-view-id>Administrator/*</from-view-id>
         <navigation-case>
-            <from-outcome>STARTadmin</from-outcome>
-            <if>#{pearsonkontroler.zalogowany}</if>
-            <to-view-id>/administrator/STARTadmin.xhtml</to-view-id>
+            <from-outcome>administratorUsers</from-outcome>
+            <to-view-id>/Administrator/administratorUsers.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-outcome>mieszkaniecSTART</from-outcome>
-            <if>#{pearsonkontroler.zalogowany}</if>
-            <to-view-id>/mieszkaniec/STARTmieszkaniec.xhtml</to-view-id>
-        </navigation-case>
-    </navigation-rule>
-    <navigation-rule>
-        <from-view-id>/administrator/*</from-view-id>
-        <navigation-case>
-            <from-outcome>adminDane</from-outcome>
-            <if>#{pearsonkontroler.zalogowany}</if>
-            <to-view-id>/administrator/opcje/adminDane.xhtml</to-view-id>
+            <from-outcome>administratorRoom</from-outcome>
+            <to-view-id>/Administrator/administratorRoom.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-outcome>dodaniePokoju</from-outcome>
-            <to-view-id>/administrator/opcje/adminDodaniePokoju.xhtml</to-view-id>
-        </navigation-case>
-        
-        <navigation-case>
-            <from-outcome>dodanieSprzetu</from-outcome>
-            <to-view-id>/administrator/opcje/adminDodanieSprzetu.xhtml</to-view-id>
+            <from-outcome>administratorEvent</from-outcome>
+            <to-view-id>/Administrator/administratorEvent.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-outcome>eventCreator</from-outcome>
-            <to-view-id>/administrator/opcje/eventCreator.xhtml</to-view-id>
+            <from-outcome>administratorCrankyEvent</from-outcome>
+            <to-view-id>/Administrator/administratorCrankyEvent.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>adminstratorStart</from-outcome>
+            <to-view-id>/Administrator/administratorStart.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     
+      <navigation-rule>
+        <from-view-id>Inhabitant/*</from-view-id>
+        <navigation-case>
+            <from-outcome>inhabitantEvent</from-outcome>
+            <to-view-id>/Inhabitant/inhabitantEvent.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>inhabitantRoom</from-outcome>
+            <to-view-id>/Inhabitant/inhabitantRoom.xhtml</to-view-id>
+         </navigation-case>
+        <navigation-case>
+            <from-outcome>inhabitantStart</from-outcome>
+            <to-view-id>/Inhabitant/inhabitantStart.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>inhabitantCrankyEvent</from-outcome>
+            <to-view-id>/Inhabitant/inhabitantCrankyEvent.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>Porter/*</from-view-id>
+        <navigation-case>
+            <from-outcome>porterSearch</from-outcome>
+            <to-view-id>/Porter/porterSearch.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>porterStart</from-outcome>
+            <to-view-id>/Porter/porterStart.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <application>
+        <resource-bundle>
+            <base-name>/Bundle</base-name>
+            <var>bundle</var>
+        </resource-bundle>
+    </application>
 </faces-config>

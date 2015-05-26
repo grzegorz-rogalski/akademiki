@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./administratorDekorator.xhtml">
+
+            <ui:define name="content">
+                <p:panel>
+                    <h:form id="form">
+                        <h:outputText rendered="false" value="#{kontroler.siteController.edit}#{eventkontroler.fillListAll()}"/>
+                        <h1><h:outputText value="OBSŁUGA NAPRAW"/></h1>
+                        <h:panelGrid columns="5" cellpadding="5">
+                            <p:commandButton value="Edytuj" 
+                                             rendered="#{!kontroler.siteController.edit}" 
+                                             action="#{kontroler.siteController.changeEdit()}" update="form"/>                          
+                            <p:commandButton value="Zapisz" 
+                                             rendered="#{kontroler.siteController.edit}" 
+                                             action="#{kontroler.updateAllCrankyEvents()}" update="form"/>
+                            <p:commandButton value="Tylko zatwierdzone" 
+                                             action="#{crankyeventkontroler.findAllAccepted()}"
+                                             update="form"/>
+                            <p:commandButton value="Tylko niezatwierdzone" 
+                                             action="#{crankyeventkontroler.findAllUnAccepted()}"
+                                             update="form"/>
+                            <p:commandButton value="Wyświetl" 
+                                             action="#{crankyeventkontroler.fillListAll()}"
+                                             update="form"/>
+                        </h:panelGrid>
+
+
+                        <h:dataTable value="#{crankyeventkontroler.eventList}" var="item">
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Id"/>
+                                </f:facet>
+                                <h:outputText value="#{item.id}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Utworzony przez"/>
+                                </f:facet>
+                                <h:outputText value="#{item.createdBy}"/>
+                            </h:column>
+
+                            <h:column rendered="#{!kontroler.siteController.edit}">
+                                <f:facet name="header">
+                                    <h:outputText value="Nazwa"/>
+                                </f:facet>
+                                <h:outputText value="#{item.brokenThingName}"/>
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Opis"/>
+                                </f:facet>
+                                <h:outputText value="#{item.description}"/>
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Data zgłoszenia"/>
+                                </f:facet>
+                                <h:outputText value="#{item.date}">
+                                    <f:convertDateTime pattern="MM/dd/yyyy" />
+                                </h:outputText>
+                            </h:column>
+                            
+                            <h:column rendered="#{!kontroler.siteController.edit}">
+                                <f:facet name="header">
+                                    <h:outputText value="Ukonczony"/>
+                                </f:facet>
+                                <h:outputText value="#{item.isFinished}"/>
+
+                            </h:column>
+                            <h:column rendered="#{kontroler.siteController.edit}">
+                                <f:facet name="header">
+                                    <h:outputText value="Ukończony"/>
+                                </f:facet>
+                                <h:inputText value="#{item.isFinished}"/>
+                            </h:column>
+
+                        </h:dataTable>
+                    </h:form>
+                </p:panel>
+                    
+                    
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

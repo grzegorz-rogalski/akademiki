@@ -7,38 +7,31 @@
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <h:outputStylesheet name="./css/StartCSS.css"/>
-        <title>Facelets Template</title>
+        <h:outputStylesheet name="./css/default.css"/>
+        <h:outputStylesheet name="./css/cssLayout.css"/>
+        <title>eAKADEMIK</title>
     </h:head>
 
     <h:body>
 
         <div id="top">
-            <ui:insert name="top">
-                <div align="center">
-                    <h1>Strona w budowie</h1>
-                </div>
-            </ui:insert>
+            <ui:insert name="top">Top</ui:insert>
         </div>
-
-        <div id="content" class="center_content">
-            <ui:insert name="content">
-                <div align="center">
-                    <h1>Przepraszamy, ale wystąpił problem w działaniu strony</h1>
-                </div>
-            </ui:insert>
-            
+        <div>
+            <div id="content" class="left_content">
+                <ui:insert name="content">Content</ui:insert>
+            </div>
         </div>
-
         <div id="bottom">
             <ui:insert name="bottom">
                 <div align="center">
-                    <p:panel>
-                        @Projekt zespołowy
-                    </p:panel>
+                    <h:form>
+                        <p:panel>
+                            <h2>@ Projekt zespołowy</h2>
+                        </p:panel>
+                    </h:form>
                 </div>
             </ui:insert>
-            
         </div>
 
     </h:body>

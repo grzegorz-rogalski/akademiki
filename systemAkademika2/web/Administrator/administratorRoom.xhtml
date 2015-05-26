@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./administratorDekorator.xhtml">
+
+            <ui:define name="content">
+                <div align="center">
+                    <h:form id="form">
+                        <p:panel>
+                            <h:outputText value="#{roomkontroler.fillList()}"/>
+                            <h:outputText value="#{furnishingsKontroler.fillAllFurnishingsList()}"/>
+                            <h:outputText value="#{furnishingsnamekontroler.findAll()}"/>
+                            <p:panelGrid columns="2" style="column-width: max-content">
+                                <f:facet name="header">
+                                    <h2><h:outputText value="Statystyki:"/></h2>
+                                </f:facet>
+                                <h:outputText value="Ilość pokoi:"/>
+                                <h:outputText value="#{roomkontroler.roomsCountAll}"/>
+                                <h:outputText value="Całkowicie wolne:"/>
+                                <h:outputText value="#{roomkontroler.roomsCountAllFree}"/>
+                                <h:outputText value="Pokoje męskie zajęte:" style="color: blue"/>
+                                <h:outputText value="#{roomkontroler.roomsCountFullMan}"/>
+                                <h:outputText value="Pokoje męskie wolne:" style="color: blue"/>
+                                <h:outputText value="#{roomkontroler.roomsCountFreeMan}"/>
+                                <h:outputText value="Pokoje żeńskie zajęte:" style="color: red"/>
+                                <h:outputText value="#{roomkontroler.roomsCountFullWoman}"/>
+                                <h:outputText value="Pokoje żeńskie wolne:" style="color: red"/>
+                                <h:outputText value="#{roomkontroler.roomsCountFreeWomen}"/>
+                                <h:outputText value="Pokoje mieszkalne:"/>
+                                <h:panelGrid columns="1" cellpadding="5">                                    
+                                    <h:panelGrid columns="2">                                     
+                                        <h:selectOneMenu value="#{roomkontroler.tempIndex}">
+                                            <f:selectItems value="#{roomkontroler.roomList}" var="c"
+                                                           itemLabel="#{c.number}" itemValue="#{c.id}" />
+                                        </h:selectOneMenu>
+                                        <p:commandButton value="wybierz" update="form"/>
+                                        <h:column/>
+                                    </h:panelGrid>
+                                    <p:commandButton value="dodaj" action="pop-up/newRoom.xhtml" style="width: 100%"/>
+                                </h:panelGrid>
+                                <h:outputText value="Dostępny sprzęt"/>
+                                <h:panelGrid columns="1" cellpadding="5">                                    
+                                    <h:panelGrid columns="2">                                     
+                                        <h:selectOneMenu value="0">
+                                            <f:selectItems value="#{furnishingsnamekontroler.list}" var="c"
+                                                           itemLabel="#{c.name}" itemValue="#{c.id}" />
+                                        </h:selectOneMenu>
+                                        <h:column/>
+                                   
+                                        <h:inputText value="#{furnishingsnamekontroler.name.name}"/>
+                                        <p:commandButton value="dodaj"
+                                                     action="#{furnishingsnamekontroler.add()}"
+                                                     update="form"
+                                                     style="width: 100%"/>
+                                    </h:panelGrid>
+                                </h:panelGrid>      
+                            </p:panelGrid>
+                        </p:panel>
+                    </h:form>
+                </div>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

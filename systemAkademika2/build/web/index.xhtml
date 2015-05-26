@@ -2,8 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <body>
@@ -12,86 +12,60 @@
 
             <ui:define name="top">
                 <div align="center">
-                    <p:panel>
-                        <h2>System e-Akademik</h2>
-                    </p:panel>
+                    <h:form>
+                        <p:panel>
+                            <h2>System EAkademik</h2>
+                            <p:commandButton value="TEST" action="#{kontroler.findFreeBed()}"/>
+                        </p:panel>
+                    </h:form>
                 </div>
             </ui:define>
 
+
+
             <ui:define name="content">
-                <p:panel>
-                    <h:form>
-                        <div align="center">
-                            <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
-                            <h2>Dokonaj logowania lub rejestracji</h2>
-                        </div>
-                    </h:form>
-                </p:panel>
-                <p:accordionPanel>
-        <p:tab title="Logowanie">
-            <div align="center">
-                <h:form>
-                    <h:panelGrid columns="3">
-                        <p:outputLabel value="Login:" for="login" />
-                        <p:inputText id="login" value="#{pearsonkontroler.osoba.login}" title="Login" required="true"/>
-                        <p:message for="login" />
-                        
-                        <p:outputLabel value="Haslo:" for="haslo" />
-                        <p:password id="haslo" value="#{pearsonkontroler.osoba.haslo}" title="Haslo" required="true"/>
-                        <p:message for="haslo" />
-                        
-                        <f:facet name="footer">
-                            <h:panelGrid columns="1">
-                                <p:commandButton value="Logowanie" style="width: 100%" action="#{pearsonkontroler.logowanie()}"/>
-                                <h:commandLink value="Poproś o odzyskanie hasła"/>
-                            </h:panelGrid>
-                            
-                        </f:facet>
-                    </h:panelGrid>
-                </h:form>
-            </div>
-        </p:tab>
-        <p:tab title="Rejestracja">
-            <f:view>
                 <div align="center">
                     <h:form>
-                        <h1><h:outputText value="Podaj swoje dane:"/></h1>
-                            <h:panelGrid columns="3">
-                                
-                                <p:outputLabel value="Imie:" for="imie" />
-                                <p:inputText id="imie" value="#{pearsonkontroler.osoba.imie}" title="Imie" required="true"/>
-                                <p:message for="imie" />
-                                
-                                <p:outputLabel value="Nazwisko:" for="nazwisko" />
-                                <p:inputText id="nazwisko" value="#{pearsonkontroler.osoba.nazwisko}" title="Nazwisko" required="true"/>
-                                <p:message for="nazwisko" />
-                                
-                                <p:outputLabel value="Mail:" for="mail" />
-                                <p:inputText id="mail" value="#{pearsonkontroler.osoba.mail}" title="Mail" required="true"/>
-                                <p:message for="mail" />
-                                
-                                <p:outputLabel value="Login:" for="login" />
-                                <p:inputText id="login" value="#{pearsonkontroler.osoba.login}" title="Login" required="true"/>
-                                <p:message for="login" />
-                                
-                                <p:outputLabel value="Haslo:" for="haslo" />
-                                <p:password id="haslo" value="#{pearsonkontroler.osoba.haslo}" title="Haslo" feedback="true" required="true"/>
-                                <p:message for="haslo" />
-                                
+                        <p:panel>
+                            Wiataj na stronie EAkadmik, czyli internetowego systemu obsługi akademika.
+                            Jeśli masz już konto to zapraszamy do logowania:
+
+                            <h:panelGrid columns="2">
+                                <f:facet name="header">
+                                    <h1>Logowanie</h1>
+                                </f:facet>
+                                <h:outputLabel value="Login:" for="login" />
+                                <h:inputText id="login" 
+                                             value="#{personkontroler.person.login}" 
+                                             title="Login" />
+                                <h:outputLabel value="Password:" for="password" />
+                                <h:inputSecret id="password" 
+                                               value="#{personkontroler.person.password}" 
+                                               title="Password" />
                                 <f:facet name="footer">
-                                    <p:commandButton value="Rejestacja" action="#{pearsonkontroler.rejestracja()}" style="width: 100%"/>
-                                    
+                                    <p:commandButton value="Zaloguj" 
+                                                     action="#{kontroler.logIn()}" 
+                                                     style="width: 100%"/>
                                 </f:facet>
                             </h:panelGrid>
-                    </h:form>
-                </div>    
-            </f:view>
 
-        </p:tab>
-    </p:accordionPanel>
+                            <h:panelGrid columns="1" style="margin-top: 1%">
+                                <h:outputText value="Jeśli nie to to zarejestruj się już dziś:" 
+                                              style="font-size: x-large; font-weight: bold"/>
+                                <p:commandButton value="Przejdź do rejestracji" action="rejestracja" 
+                                                 style="width: 100%"/>
+                                <p:commandLink value="Informacje" action="info" 
+                                               style="alignment-adjust: central"/>
+                            </h:panelGrid>
+                        </p:panel>
+                    </h:form>
+                </div>
             </ui:define>
 
         </ui:composition>
 
+        <br />
+
     </body>
+
 </html>

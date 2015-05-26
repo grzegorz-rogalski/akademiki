@@ -41,17 +41,6 @@ public class RoomKontroler implements Serializable{
         room = new Room();
     }
     
-    
-    public void setRoomsCounts()
-    {
-        roomsCountAll = manager.allRooms().size();
-        //reszta danych do statystyk
-        //trzeba znaleść listę pokoi z zerem wolnych miejsc
-        //liste z wolnymi miejscami
-        //podzielić je na dwie (razem 4) męskie i żeńskie
-        //funkcje wywołać na górze strony z tabelą
-    }
-    
     public boolean createNewRoom()
     {
         if(manager.findByNumber(room.getNumber()).isEmpty())
@@ -81,6 +70,17 @@ public class RoomKontroler implements Serializable{
     public void fillList()
     {
         roomList = manager.allRooms();
+    }
+    
+    
+    public void generateStatictic()
+    {
+        roomsCountAll = manager.allRooms().size();
+        roomsCountAllFree = manager.findFreeBedRoom("free").size();
+        roomsCountFreeMan = manager.findFreeBedRoom("he").size();
+        roomsCountFreeWomen = manager.findFreeBedRoom("she").size();
+        roomsCountFullMan = manager.findFreeBedRoom("he").size();
+        roomsCountFullWoman = manager.findFreeBedRoom("she").size();
     }
 
     public Room getRoom() {

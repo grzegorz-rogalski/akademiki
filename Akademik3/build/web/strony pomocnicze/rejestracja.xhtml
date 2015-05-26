@@ -20,8 +20,10 @@
                         <h:inputText id="surname" value="#{personkontroler.person.surname}" 
                                      title="Surname" />
                         <h:outputLabel value="Płeć:" for="sex" />
-                        <h:inputText id="sex" value="#{personkontroler.person.sex}" 
-                                     title="Sex" />
+                        <h:selectOneMenu id="sexInput" value="#{personkontroler.person.sex}">
+                            <f:selectItem itemLabel="Kobieta" itemValue="k" />
+                            <f:selectItem itemLabel="Mężczyzna" itemValue="m" />
+                        </h:selectOneMenu>
                         <h:outputLabel value="Login:" for="login" />
                         <h:inputText id="login" value="#{personkontroler.person.login}" 
                                      title="Login" />

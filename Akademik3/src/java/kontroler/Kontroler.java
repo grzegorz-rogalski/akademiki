@@ -6,22 +6,22 @@
 package kontroler;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 
 import javax.faces.bean.SessionScoped;
-import javax.faces.component.UIComponent;
-import javax.faces.context.FacesContext;
-import javax.faces.convert.Converter;
-import javax.faces.convert.FacesConverter;
 import logika.DBkontroler.CrankyEventKontroler;
 import logika.DBkontroler.EventKontroler;
 import logika.DBkontroler.FurnishingsKontroler;
+import logika.DBkontroler.FurnishingsNameKontroler;
 import logika.DBkontroler.PersonKontroler;
+import logika.DBkontroler.RoomChangeKontroler;
 import logika.DBkontroler.RoomKontroler;
 import logika.entity.Furnishings;
 import logika.entity.Person;
-import org.primefaces.event.DragDropEvent;
+import logika.entity.Room;
 
 
 /**
@@ -46,6 +46,12 @@ public class Kontroler implements Serializable{
     @ManagedProperty(value="#{crankyeventkontroler}")
     CrankyEventKontroler crankyEventKontroler;
     
+    @ManagedProperty(value="#{furnishingsnamekontroler}")
+    FurnishingsNameKontroler furnishingsNameKontroler;
+    
+    @ManagedProperty(value="#{roomchangekontroler}")
+    RoomChangeKontroler roomChangeKontroler;
+    
     SiteController siteController = new SiteController();
     
     public String logIn()
@@ -68,10 +74,28 @@ public class Kontroler implements Serializable{
     
     public String registration()
     {
-        if(personKontroler.createNew(roomKontroler.manager.allRooms().size()))
-            return "home";
-        else
-            return "home";
+        System.out.println("1");
+        if(!findFreeBed().getNumber().equals("nie") && personKontroler.createNewPerson())
+        {
+            System.out.println("2");
+            if(personKontroler.getPerson().getStatus().equals("Mieszkaniec"))
+            {
+                System.out.println("3");
+                personKontroler.getPerson().setRoom(findFreeBed());
+                System.out.println("4");
+                roomKontroler.setRoom(findFreeBed());
+                System.out.println("5");
+                roomKontroler.getRoom().getPeople().add(personKontroler.getPerson());
+                System.out.println("6");
+                roomKontroler.getRoom().setNumberOfFreeBeds(roomKontroler.getRoom().getNumberOfFreeBeds()-1);
+                System.out.println("7");
+                roomKontroler.editRoom();
+                System.out.println("8");
+            }
+            System.out.println("9");
+        }
+        System.out.println("10");
+        return "home";
     }
     
     public void updateAllPeople()
@@ -81,6 +105,17 @@ public class Kontroler implements Serializable{
             personKontroler.manager.update(personKontroler.getPersonList().get(i));
         }
         siteController.changeEdit();
+    }
+    
+    public void createfurnishingsForFoomList()
+    {
+        roomKontroler.setRoom(new Room());
+        for(int i = 0; i < furnishingsNameKontroler.getList().size(); i++)
+        {
+            Furnishings temp = new Furnishings();
+            temp.setName(furnishingsNameKontroler.getList().get(i));
+            roomKontroler.getRoom().getFurnishings().add(temp);
+        }
     }
     
     public void updateAllEvents()
@@ -100,22 +135,58 @@ public class Kontroler implements Serializable{
         }
         siteController.changeEdit();
     }
-        
-    public void onFurnishingsDrop(DragDropEvent ddEvent) {
-        Furnishings temp = ((Furnishings) ddEvent.getData());
-  
-        roomKontroler.getRoom().getFurnishings().add(temp);
-        furnishingsKontroler.getFurnishingsList().remove(temp);
-    }
     
-    public void addRoom()
+    public String addRoom()
     {
         roomKontroler.createNewRoom();
+        return "administratorRoom";
     }
     
     public void addfurnishings()
     {
         furnishingsKontroler.newFurnishings();
+    }
+    
+    public Room findFreeBed()
+    {
+        if(personKontroler.getPerson().getSex().equals("m"))
+        {
+            List <Room> a = new ArrayList<>();
+            a = roomKontroler.manager.findFreeBedRoom("he");
+            if(a.isEmpty())
+            {
+                a = roomKontroler.manager.findFreeBedRoom("free");
+                if(!a.isEmpty())
+                {
+                    return a.get(0);
+                }
+            }
+            else
+            {
+                return a.get(0);
+            }
+        }
+        
+        if(personKontroler.getPerson().getSex().equals("k"))
+        {
+            List <Room> a = new ArrayList<>();
+            a = roomKontroler.manager.findFreeBedRoom("she");
+            if(a.isEmpty())
+            {
+                a = roomKontroler.manager.findFreeBedRoom("free");
+                if(!a.isEmpty())
+                {
+                    return a.get(0);
+                }
+            }
+            else
+            {
+                return a.get(0);
+            }
+        }
+        Room returnRoom = new Room();
+        returnRoom.setNumber("nie");
+        return returnRoom;
     }
     
     public void setPersonKontroler(PersonKontroler personKontroler) {
@@ -157,6 +228,23 @@ public class Kontroler implements Serializable{
     public void setCrankyEventKontroler(CrankyEventKontroler crankyEventKontroler) {
         this.crankyEventKontroler = crankyEventKontroler;
     }
+
+    public FurnishingsNameKontroler getFurnishingsNameKontroler() {
+        return furnishingsNameKontroler;
+    }
+
+    public void setFurnishingsNameKontroler(FurnishingsNameKontroler furnishingsNameKontroler) {
+        this.furnishingsNameKontroler = furnishingsNameKontroler;
+    }
+
+    public RoomChangeKontroler getRoomChangeKontroler() {
+        return roomChangeKontroler;
+    }
+
+    public void setRoomChangeKontroler(RoomChangeKontroler roomChangeKontroler) {
+        this.roomChangeKontroler = roomChangeKontroler;
+    }
+    
     
     
     

@@ -22,8 +22,10 @@
                         <h:inputText id="surname" value="#{personkontroler.person.surname}" 
                                      title="Surname" />
                         <h:outputLabel value="Płeć:" for="sex" />
-                        <h:inputText id="sex" value="#{personkontroler.person.sex}" 
-                                     title="Sex" />
+                        <h:selectOneMenu id="sexInput" value="#{personkontroler.person.sex}">
+                            <f:selectItem itemLabel="Kobieta" itemValue="k" />
+                            <f:selectItem itemLabel="Mężczyzna" itemValue="m" />
+                        </h:selectOneMenu>
                         <h:outputLabel value="Login:" for="login" />
                         <h:inputText id="login" value="#{personkontroler.person.login}" 
                                      title="Login" />
@@ -45,8 +47,10 @@
                         <h:inputText id="studentCardNumber" value="#{personkontroler.person.studentCardNumber}" 
                                      title="StudentCardNumber" />
                         <h:outputLabel value="Status:" for="status" />
-                        <h:inputText id="status" value="#{personkontroler.person.status}" 
-                                     title="Status" />
+                        <h:selectOneMenu id="statusInput" value="#{personkontroler.person.status}">
+                            <f:selectItem itemLabel="Administrator" itemValue="Administrator" />
+                            <f:selectItem itemLabel="Portier" itemValue="Portier" />
+                        </h:selectOneMenu>
                         <f:facet name="footer">
                             <p:commandButton value="Zapisz" action="#{personkontroler.createNew()}"/>
                         </f:facet>

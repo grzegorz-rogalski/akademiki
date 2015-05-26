@@ -16,20 +16,18 @@
                         <p:panel>
                             <h:outputText value="#{roomkontroler.fillList()}"/>
                             <h:outputText value="#{furnishingsKontroler.fillAllFurnishingsList()}"/>
+                            <h:outputText value="#{furnishingsnamekontroler.findAll()}"/>
                             <p:panelGrid columns="2" style="column-width: max-content">
                                 <f:facet name="header">
                                     <h2><h:outputText value="Statystyki:"/></h2>
+                                    <h:outputText value="#{roomkontroler.generateStatictic()}"/>
                                 </f:facet>
                                 <h:outputText value="Ilość pokoi:"/>
                                 <h:outputText value="#{roomkontroler.roomsCountAll}"/>
                                 <h:outputText value="Całkowicie wolne:"/>
                                 <h:outputText value="#{roomkontroler.roomsCountAllFree}"/>
-                                <h:outputText value="Pokoje męskie zajęte:" style="color: blue"/>
-                                <h:outputText value="#{roomkontroler.roomsCountFullMan}"/>
                                 <h:outputText value="Pokoje męskie wolne:" style="color: blue"/>
                                 <h:outputText value="#{roomkontroler.roomsCountFreeMan}"/>
-                                <h:outputText value="Pokoje żeńskie zajęte:" style="color: red"/>
-                                <h:outputText value="#{roomkontroler.roomsCountFullWoman}"/>
                                 <h:outputText value="Pokoje żeńskie wolne:" style="color: red"/>
                                 <h:outputText value="#{roomkontroler.roomsCountFreeWomen}"/>
                                 <h:outputText value="Pokoje mieszkalne:"/>
@@ -40,40 +38,27 @@
                                                            itemLabel="#{c.number}" itemValue="#{c.id}" />
                                         </h:selectOneMenu>
                                         <p:commandButton value="wybierz" update="form"/>
-                                        <p:commandButton update="form" value="szczegóły" 
-                                                         onclick="PF('roomDetails').show();"/>
+                                        <h:column/>
                                     </h:panelGrid>
-                                    <p:commandButton value="dodaj" onclick="PF('newRoom').show();" style="width: 100%"/>
+                                    <p:commandButton value="dodaj" action="pop-up/newRoom.xhtml" style="width: 100%"/>
                                 </h:panelGrid>
                                 <h:outputText value="Dostępny sprzęt"/>
                                 <h:panelGrid columns="1" cellpadding="5">                                    
                                     <h:panelGrid columns="2">                                     
                                         <h:selectOneMenu value="0">
-                                            <f:selectItems value="#{furnishingsKontroler.furnishingsList}" var="c"
+                                            <f:selectItems value="#{furnishingsnamekontroler.list}" var="c"
                                                            itemLabel="#{c.name}" itemValue="#{c.id}" />
                                         </h:selectOneMenu>
-                                        <p:commandButton value="szczegóły"/>
-                                    </h:panelGrid>
-                                    <p:commandButton value="dodaj" 
-                                                     onclick="PF('newFurnishings').show();" 
+                                        <h:column/>
+                                   
+                                        <h:inputText value="#{furnishingsnamekontroler.name.name}"/>
+                                        <p:commandButton value="dodaj"
+                                                     action="#{furnishingsnamekontroler.add()}"
+                                                     update="form"
                                                      style="width: 100%"/>
+                                    </h:panelGrid>
                                 </h:panelGrid>      
                             </p:panelGrid>
-                            <p:dialog widgetVar="newRoom" header="Dodaj pokój" 
-                                      resizable="false" modal="true" showEffect="fade" 
-                                      hideEffect="fade">
-                                <ui:include src="pop-up/newRoom.xhtml"/>
-                            </p:dialog>
-                            <p:dialog widgetVar="newFurnishings" header="Dodaj sprzęt" 
-                                      resizable="false" modal="true" showEffect="fade" 
-                                      hideEffect="fade">
-                                <ui:include src="pop-up/newFurnishings.xhtml"/>
-                            </p:dialog>
-                            <p:dialog widgetVar="roomDetails" header="Dane pokoju" 
-                                      resizable="false" modal="true" showEffect="fade" 
-                                      hideEffect="fade">
-                                <ui:include src="pop-up/viewRoom.xhtml"/>
-                            </p:dialog>
                         </p:panel>
                     </h:form>
                 </div>

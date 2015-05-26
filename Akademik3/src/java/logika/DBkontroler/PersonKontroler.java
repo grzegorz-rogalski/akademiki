@@ -49,27 +49,18 @@ public class PersonKontroler implements Serializable{
         }
     }
     
-    public boolean createNew(int rooms)
+    public boolean createNewPerson()
     {
         if(manager.allPeople().isEmpty() || manager.allPeople().size() == 1)
         {
             person.setStatus("Administrator");
         }
         else
-        {
-            if(manager.findByStatus("Mieszkaniec").size() < rooms)
-                person.setStatus("Mieszkaniec");
-            else    
-            {
-                System.out.println("Brak miejsc");
-                return false;
-            }
-                
+        {          
+            person.setStatus("Mieszkaniec");
         }
         if(manager.findByLogin(person.getLogin()).isEmpty())
         {
-            manager.createOsoba(person);
-            person = new Person();
             return true;
         }   
         else

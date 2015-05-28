@@ -15,6 +15,7 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import logika.bean.PersonBean;
 import logika.entity.Person;
+import logika.entity.Room;
 
 /**
  *
@@ -25,6 +26,7 @@ import logika.entity.Person;
 public class PersonKontroler implements Serializable{
     public static Person currentlyLogged;
     private Person person;
+    private Person tempPerson;
     private List <Person> personList;
     @EJB
     public PersonBean manager;
@@ -33,6 +35,7 @@ public class PersonKontroler implements Serializable{
     public PersonKontroler() {
         person = new Person();
         personList = new ArrayList<>();
+        tempPerson = new Person();
     }
     
     public String createNew()
@@ -106,6 +109,11 @@ public class PersonKontroler implements Serializable{
         manager.update(person);
     }
     
+    public void editTemp()
+    {
+        manager.update(tempPerson);
+    }
+    
     public void fillListAll()
     {
         personList = manager.allPeople();
@@ -158,6 +166,14 @@ public class PersonKontroler implements Serializable{
 
     public void setPersonList(List<Person> personList) {
         this.personList = personList;
+    }
+
+    public Person getTempPerson() {
+        return tempPerson;
+    }
+
+    public void setTempPerson(Person tempPerson) {
+        this.tempPerson = tempPerson;
     }
     
     

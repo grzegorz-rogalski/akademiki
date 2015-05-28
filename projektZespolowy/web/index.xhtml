@@ -13,9 +13,8 @@
             <ui:define name="top">
                 <div align="center">
                     <h:form>
-                        <p:panel>
+                        <p:panel styleClass="panel">
                             <h2>System EAkademik</h2>
-                            <p:commandButton value="TEST" action="#{kontroler.findFreeBed()}"/>
                         </p:panel>
                     </h:form>
                 </div>
@@ -26,13 +25,13 @@
             <ui:define name="content">
                 <div align="center">
                     <h:form>
-                        <p:panel>
+                        <p:panel styleClass="panel">
                             Wiataj na stronie EAkadmik, czyli internetowego systemu obsługi akademika.
                             Jeśli masz już konto to zapraszamy do logowania:
 
                             <h:panelGrid columns="2">
                                 <f:facet name="header">
-                                    <h1>Logowanie</h1>
+                                    <h2>Logowanie</h2>
                                 </f:facet>
                                 <h:outputLabel value="Login:" for="login" />
                                 <h:inputText id="login" 

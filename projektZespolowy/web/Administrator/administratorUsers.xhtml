@@ -15,9 +15,9 @@
                     <f:view>
 
                         <h:form id="form">
-                            <p:panel>
+                            <p:panel styleClass="panel">
                                 <h:outputText rendered="false" value="#{kontroler.siteController.edit}#{personkontroler.fillListAll()}"/>
-                                <h1><h:outputText value="Lista osób:"/></h1>
+                                <h2><h:outputText value="Lista osób:"/></h2>
                                 <h:panelGrid columns="2" cellpadding="5">
 
 
@@ -32,7 +32,7 @@
                                     <!--<p:commandButton value="Wyświetl" 
                                                      action="#{personkontroler.fillListAll()}"/>-->
                                 </h:panelGrid>
-                                <h:dataTable value="#{personkontroler.personList}" var="item">
+                                <h:dataTable value="#{personkontroler.personList}" var="item" rendered="#{!kontroler.siteController.edit}">
                                     <h:column>
                                         <f:facet name="header">
                                             <h:outputText value="Id"/>
@@ -125,33 +125,81 @@
                                         <f:facet name="header">
                                             <h:outputText value="Status"/>
                                         </f:facet>
-                                        <h:inputText value="#{item.status}"/>
+                                         <h:selectOneMenu value="#{item.status}">
+                                            <f:selectItem itemLabel="Administrator" itemValue="Administrator" />
+                                            <f:selectItem itemLabel="Mieszkaniec" itemValue="Mieszkaniec" />
+                                            <f:selectItem itemLabel="Portier" itemValue="Portier" />
+                                        </h:selectOneMenu>
+                            
                                     </h:column>
 
                                     <h:column rendered="#{!kontroler.siteController.edit}">
                                         <f:facet name="header">
                                             <h:outputText value="Room"/>
                                         </f:facet>
-                                        <h:outputText value="#{item.room}"/>
+                                        <h:outputText value="#{item.room.number}"/>
                                     </h:column>
-                                    <h:column rendered="#{kontroler.siteController.edit}">
-                                        <f:facet name="header">
-                                            <h:outputText value="Room"/>
-                                        </f:facet>
-                                        <h:outputText value="#{item.room}"/>
-                                    </h:column>
-
-                                    <h:column>
+                                    
+                                    <!--<h:column>
                                         <f:facet name="header">
                                             <h:outputText value="Obrazek"/>
                                         </f:facet>
                                         <h:outputText value="#{item.obrazek}"/>
-                                    </h:column>
+                                    </h:column>-->
                                     <h:column>
                                         <f:facet name="header">
                                             <h:outputText value="Mail"/>
                                         </f:facet>
                                         <h:outputText value="#{item.mail}"/>
+                                    </h:column>
+                                </h:dataTable>
+                                <h:dataTable value="#{personkontroler.personList}" var="item" rendered="#{kontroler.siteController.edit}">
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="Id"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.id}"/>
+                                    </h:column>
+
+                                    <h:column rendered="#{kontroler.siteController.edit}">
+                                        <f:facet name="header">
+                                            <h:outputText value="Name"/>
+                                        </f:facet>
+                                        <h:inputText value="#{item.name}"/>
+                                    </h:column>
+
+                                    
+                                    <h:column rendered="#{kontroler.siteController.edit}">
+                                        <f:facet name="header">
+                                            <h:outputText value="Surname"/>
+                                        </f:facet>
+                                        <h:inputText value="#{item.surname}"/>
+                                    </h:column>
+
+                                    <h:column rendered="#{kontroler.siteController.edit}">
+                                        <f:facet name="header">
+                                            <h:outputText value="PhoneNumber"/>
+                                        </f:facet>
+                                        <h:inputText value="#{item.phoneNumber}"/>
+                                    </h:column>
+
+                                    <h:column rendered="#{kontroler.siteController.edit}">
+                                        <f:facet name="header">
+                                            <h:outputText value="Status"/>
+                                        </f:facet>
+                                         <h:selectOneMenu value="#{item.status}">
+                                            <f:selectItem itemLabel="Administrator" itemValue="Administrator" />
+                                            <f:selectItem itemLabel="Mieszkaniec" itemValue="Mieszkaniec" />
+                                            <f:selectItem itemLabel="Portier" itemValue="Portier" />
+                                        </h:selectOneMenu>
+                            
+                                    </h:column>
+
+                                    <h:column>
+                                        <f:facet name="header">
+                                            <h:outputText value="Mail"/>
+                                        </f:facet>
+                                        <h:inputText value="#{item.mail}"/>
                                     </h:column>
                                 </h:dataTable>
                             </p:panel>

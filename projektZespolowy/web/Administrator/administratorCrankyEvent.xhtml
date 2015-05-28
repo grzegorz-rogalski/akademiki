@@ -11,7 +11,7 @@
         <ui:composition template="./administratorDekorator.xhtml">
 
             <ui:define name="content">
-                <p:panel>
+                <p:panel styleClass="panel">
                     <h:form id="form">
                         <h:outputText rendered="false" value="#{kontroler.siteController.edit}#{eventkontroler.fillListAll()}"/>
                         <h1><h:outputText value="OBSŁUGA NAPRAW"/></h1>
@@ -82,7 +82,10 @@
                                 <f:facet name="header">
                                     <h:outputText value="Ukończony"/>
                                 </f:facet>
-                                <h:inputText value="#{item.isFinished}"/>
+                                <h:selectOneMenu id="true" value="#{item.isAccepted}">
+                                    <f:selectItem itemLabel="Zatwierdzam" itemValue="true" />
+                                    <f:selectItem itemLabel="Odmawiam" itemValue="false" />
+                                </h:selectOneMenu>
                             </h:column>
 
                         </h:dataTable>

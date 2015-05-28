@@ -1,7 +1,6 @@
 
 #top {
     position: relative;
-    background-color: #036fab;
     color: white;
     padding: 5px;
     margin: 0px 0px 10px 0px;
@@ -9,42 +8,39 @@
 
 #bottom {
     position: relative;
-    background-color: #c2dfef;
     padding: 5px;
     margin: 10px 0px 0px 0px;
 }
 
 #left {
     float: left;
-    background-color: #ece3a5;
     padding: 5px;
     width: 150px;
 }
 
 #right {
     float: right;
-    background-color: #ece3a5;
     padding: 5px;
     width: 150px;
 }
 
+.panel{
+    border-radius: 20px 20px 20px 20px;
+    margin-left: 1px;
+}
+
 .center_content {
-    position: relative;
-    background-color: #dddddd;
     padding: 5px;
+    alignment-adjust: central;
 }
 
 .left_content {
-    background-color: #dddddd;
     padding: 5px;
     margin-left: 5%;
-    margin-right: 5%;
 }
 
 .right_content {
-    background-color: #dddddd;
-    padding: 5px;
-    margin: 0px 170px 0px 170px;
+    padding: 5%;
 }
 
 #top a:link, #top a:visited {

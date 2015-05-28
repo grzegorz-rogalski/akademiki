@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./inhabitantDecorator.xhtml">
+
+            <ui:define name="content">
+                <div align="center">
+                    <h:form>
+                        <p:panel styleClass="panel">
+                            <h:panelGrid columns="2" cellpadding="5">
+                                <f:facet name="header">
+                                    <h2>Informacje o wnoszącym o zmianę</h2>
+                                </f:facet>
+                                <h:outputText value="Kto:"/>
+                                <h:outputText value="#{personkontroler.person.name} #{personkontroler.person.surname}"/>
+                                <h:outputText value="Z pokoju:"/>
+                                <h:outputText value="#{personkontroler.person.room.number}"/>
+                            </h:panelGrid>
+                            <h:panelGrid columns="2" cellpadding="5">
+                                <f:facet name="header">
+                                    <h2>Dane osoby do zaminay</h2>
+                                </f:facet>
+                                <h:outputText value="Kto:"/>
+                                <h:panelGrid columns="2">
+                                    <h:outputLabel value="Login:" for="login" />
+                                    <h:inputText id="login" value="#{personkontroler.tempPerson.login}" title="Login" required="true"/>
+                                    <h:outputLabel value="Password:" for="password" />
+                                    <h:inputSecret id="password" value="#{personkontroler.tempPerson.password}" title="Password" required="true"/>
+                                    </h:panelGrid>
+                                <f:facet name="footer">
+                                    <p:commandButton value="Zamień" action="#{kontroler.changeRoom()}" style="width: 100%"/>
+                                </f:facet>
+                            </h:panelGrid>
+                        </p:panel>
+                    </h:form>
+                </div>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

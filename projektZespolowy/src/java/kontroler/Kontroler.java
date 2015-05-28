@@ -59,6 +59,10 @@ public class Kontroler implements Serializable{
         if(personKontroler.logIn())
         {
             System.out.println("Logowanie trwa dla "+personKontroler.getPerson().getStatus());
+            if(personKontroler.getPerson().getStatus().equals("Mieszkaniec"))
+            {
+                roomKontroler.setRoom(personKontroler.getPerson().getRoom());
+            }
             return siteController.logIn(personKontroler.getPerson().getStatus());
         }   
         else
@@ -87,10 +91,59 @@ public class Kontroler implements Serializable{
             
         }
         else if(personKontroler.createNewPerson())
-        { 
+        {
+            if(personKontroler.getPerson().getStatus().equals("Administrator"))
             personKontroler.manager.createOsoba(personKontroler.getPerson());
         }
         return "home";
+    }
+    
+    public String changeRoom()
+    {
+        Person personTemp1 = personKontroler.getPerson();
+        Person personTemp2 = personKontroler.getTempPerson();
+        Room room1;
+        Room room2;
+        if(!personKontroler.manager.findByLogin(personTemp2.getLogin()).isEmpty())
+        {
+            Person personTemp3 = personKontroler.manager.findByLogin(personTemp2.getLogin()).get(0);
+            if(personTemp3.getPassword().equals(personTemp2.getPassword()))
+            {
+                personTemp2 = personTemp3;
+                room1 = personTemp1.getRoom();
+                room2 = personTemp2.getRoom();
+                
+                for(int i = 0; i < room1.getPeople().size(); i++)
+                {
+                    if(room1.getPeople().get(i).getName().equals(personTemp1.getName()))
+                    {
+                        room1.getPeople().remove(i);
+                    }
+                }
+                for(int i = 0; i < room2.getPeople().size(); i++)
+                {
+                    if(room2.getPeople().get(i).getName().equals(personTemp2.getName()))
+                    {
+                        room2.getPeople().remove(i);
+                    }
+                }
+                room1.getPeople().add(personTemp2);
+                room2.getPeople().add(personTemp1);
+                personTemp1.setRoom(room2);
+                personTemp2.setRoom(room1);
+                roomKontroler.manager.update(room1);
+                roomKontroler.manager.update(room2);
+                personKontroler.manager.update(personTemp1);
+                personKontroler.manager.update(personTemp2);
+                roomKontroler.setRoom(room2);
+            }
+        }
+        else
+        {
+            System.out.println("Zamiana nieudana");
+        }
+        personKontroler.setTempPerson(new Person());
+        return "inhabitantRoom.xhtml";
     }
     
     public void updateAllPeople()

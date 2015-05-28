@@ -11,7 +11,7 @@
         <ui:composition template="./../administratorDekorator.xhtml">
 
             <ui:define name="content">
-                <p:panel>
+                <p:panel styleClass="panel">
                     <h:form>
                         <h1><h:outputText value="Wypełnij dane:"/></h1>
                         <h:panelGrid columns="2">
@@ -44,8 +44,10 @@
                                 <f:convertDateTime pattern="HH:mm"/>
                             </h:inputText>
                             <h:outputLabel value="Zaakceptowany" for="isAccepted" />
-                            <h:inputText id="isAccepted" value="#{eventkontroler.event.isAccepted}" 
-                                         title="IsAccepted" />
+                            <h:selectOneMenu id="true" value="#{eventkontroler.event.isAccepted}">
+                                    <f:selectItem itemLabel="Zatwierdzam" itemValue="true" />
+                                    <f:selectItem itemLabel="Odmawiam" itemValue="false" />
+                            </h:selectOneMenu>
 
                             <f:facet name="footer">
                                 <p:commandButton value="Zapisz" action="#{eventkontroler.createNew()}"/>

@@ -53,7 +53,7 @@ public class Kontroler implements Serializable{
     RoomChangeKontroler roomChangeKontroler;
     
     SiteController siteController = new SiteController();
-    
+    Messages messages = new Messages();
     public String logIn()
     {
         if(personKontroler.logIn())
@@ -292,9 +292,6 @@ public class Kontroler implements Serializable{
     public void setRoomChangeKontroler(RoomChangeKontroler roomChangeKontroler) {
         this.roomChangeKontroler = roomChangeKontroler;
     }
-    
-    
-    
-    
+     
 }
 

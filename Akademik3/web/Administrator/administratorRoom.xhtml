@@ -37,7 +37,7 @@
                                             <f:selectItems value="#{roomkontroler.roomList}" var="c"
                                                            itemLabel="#{c.number}" itemValue="#{c.id}" />
                                         </h:selectOneMenu>
-                                        <p:commandButton value="wybierz" update="form"/>
+                                        <p:commandButton value="wybierz" action="viewRoom" update="form"/>
                                         <h:column/>
                                     </h:panelGrid>
                                     <p:commandButton value="dodaj" action="pop-up/newRoom.xhtml" style="width: 100%"/>

@@ -57,6 +57,10 @@
             <from-outcome>adminstratorStart</from-outcome>
             <to-view-id>/Administrator/administratorStart.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>viewRoom</from-outcome>
+            <to-view-id>/Administrator/pop-up/viewRoom.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     
       <navigation-rule>

@@ -11,21 +11,46 @@
         <div align="center">
             <h:form>
                 <p:panel styleClass="panel">
-                <f:view>
-                    
-                        <h1><h:outputText value="List"/></h1>
-                        <h:panelGrid columns="10">
-                            <h:outputText value="Id"/>
-                            <h:outputText value="#{roomkontroler.room.id}"/>
-                            <h:outputText value="Numer"/>
-                            <h:outputText value="#{roomkontroler.room.number}"/>
-                            <h:outputText value="Ilość wolnych miejsc"/>
-                            <h:outputText value="#{roomkontroler.room.numberOfFreeBeds}"/>
-                            <h:outputText value="Ilo osobowy"/>
-                            <h:outputText value="#{roomkontroler.room.numberOfBeds}"/>
-                        </h:panelGrid>
-                            
-                </f:view>
+                    <div align="center">
+                        <h:form>
+                                <p:panelGrid columns="2">
+                                    <f:facet name="header">
+                                        <h2>Informacje o pokoju</h2>
+                                        <h:outputText value="#{roomkontroler.findByTempIndex()}"/>
+                                    </f:facet>
+                                    <h:outputText value="Numer"/>
+                                    <h:outputText value="#{roomkontroler.room.number}"/>
+                                    <h:outputText value="Ilość łóżek"/>
+                                    <h:outputText value="#{roomkontroler.room.numberOfBeds}"/>
+                                    <h:outputText value="Ilość wolnych łóżek"/>
+                                    <h:outputText value="#{roomkontroler.room.numberOfFreeBeds}"/>
+                                    <h:outputText value="Sprzęt"/>
+                                    <h:dataTable value="#{roomkontroler.room.furnishings}" var="item">
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Nazwa"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.name.name}"/>
+                                        </h:column>
+                                        <h:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Ilość"/>
+                                            </f:facet>
+                                            <h:outputText value="#{item.amount}"/>
+                                        </h:column>
+                                    </h:dataTable>
+                                    <h:outputText value="Mieszkańcy"/>
+                                    <h:dataTable value="#{roomkontroler.room.people}" var="item">
+                                        <h:column>
+                                            <h:outputText value="#{item.name} #{item.surname}"/>
+                                        </h:column>                                       
+                                    </h:dataTable>
+                                    <f:facet name="footer">
+                                        <p:commandButton value="Wstecz" action="administratorRoom" style="width: 100%"/>
+                                    </f:facet>
+                                </p:panelGrid>
+                        </h:form>
+                    </div>
                 </p:panel>
             </h:form>
         </div>
